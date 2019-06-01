@@ -15,8 +15,8 @@ public class ControllableFlying : MonoBehaviour
     float rotateSpeed = 1f;
     [SerializeField]
     float maxVel;
-    float speed = 5f;
-    float maxSpeed = 20f;
+    float throttle = 5f;
+    float maxThrottle = 15f;
     float gravity = 0f;
     Quaternion startRot;
     float startTime;
@@ -48,8 +48,11 @@ public class ControllableFlying : MonoBehaviour
         if (firstTick)
         {
             firstTick = false;
-            body.velocity = Vector3.right * speed;
+            body.velocity = Vector3.right * throttle;
         }
+
+        /*
+        var speed = body.velocity.magnitude;
 
         float gravityAcc = 9.81f / 2 * Time.fixedDeltaTime;
         if (speed > 5f)
@@ -63,23 +66,37 @@ public class ControllableFlying : MonoBehaviour
 
         gravity = gravity * Mathf.Max(0, (10 - speed) / 10);
         
-        body.velocity = body.velocity.normalized * speed;
+        body.velocity = body.velocity.normalized * throttle;
         body.velocity += Vector2.down * gravity;
+        */
 
 
+        if (body.velocity.magnitude > 80)
+        {
+            body.velocity = body.velocity.normalized * 80;
+        }
+
+        var speed = body.velocity.magnitude;
+
+        body.AddForce(transform.right.normalized * throttle);
+        body.AddForce(Vector2.down * 20);
+        float lift = Mathf.Max(0, Mathf.Min(20, transform.up.normalized.y * speed));
+        body.AddForce(Vector2.up * lift);
+
+        Debug.Log(lift + ", " + speed + ", " + throttle + ", " + transform.up.normalized.y + ", " + speed);
     }
 
     public void Accelerate()
     {
         Debug.Log("Accelerate");
-        speed += 4f * Time.fixedDeltaTime;
-        speed = Mathf.Min(speed, maxSpeed);
+        throttle += 4f * Time.fixedDeltaTime;
+        throttle = Mathf.Min(throttle, maxThrottle);
     }
 
     public void Decelerate()
     {
-        speed -= 4f * Time.fixedDeltaTime;
-        speed = Mathf.Max(speed, 0);
+        throttle -= 4f * Time.fixedDeltaTime;
+        throttle = Mathf.Max(throttle, 0);
     }
 
     public void RotateCW()

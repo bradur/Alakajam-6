@@ -5,8 +5,7 @@ using UnityEngine;
 public class PlayerPlaneControls : MonoBehaviour
 {
     [SerializeField]
-    GameObject childSprite;
-    [SerializeField]
+    GameObject playerRoot;
     ControllableFlying flying;
     bool rotateClockwise = false;
     bool rotateCounterClockwise = false;
@@ -39,6 +38,8 @@ public class PlayerPlaneControls : MonoBehaviour
         {
             decelerate = true;
         }
+
+        playerRoot.transform.position = transform.position;
     }
 
     private void FixedUpdate()
@@ -62,6 +63,7 @@ public class PlayerPlaneControls : MonoBehaviour
         else if (decelerate)
         {
             flying.Decelerate();
+            decelerate = false;
         }
     }
 }
