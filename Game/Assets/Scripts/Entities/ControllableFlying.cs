@@ -91,15 +91,8 @@ public class ControllableFlying : MonoBehaviour
     {
         if(aiRotate)
         {
-            //body.velocity = Quaternion.AngleAxis(-rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
-            //Debug.Log(Mathf.Abs(Vector3.Angle(getVec3(body.velocity), Vector3.right) - aiRotateTarget));
-            /*if(Mathf.Abs(Vector3.Angle(getVec3(body.velocity), Vector3.right) - aiRotateTarget) < 5f)
-            {
-                aiCallback(); // done!
-                aiRotate = false;
-            }*/
             float angleDiff = Vector3.SignedAngle(aiRotateTargetV, body.velocity, Vector3.forward);
-            transform.Rotate(Vector3.forward, /*20*rotateSpeed * Time.fixedDeltaTime **/ angleDiff);
+            
             Debug.Log(angleDiff + ", " + body.velocity + ", " + aiRotateTargetV + ", " + Vector3.Distance(getVec3(body.velocity), aiRotateTargetV));
             Debug.DrawLine(transform.position, transform.position + aiRotateTargetV);
             if (Vector3.Distance(getVec3(body.velocity), aiRotateTargetV) < 1f)
