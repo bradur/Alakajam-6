@@ -25,10 +25,13 @@ public class ControllableFlying : MonoBehaviour
 
     bool firstTick = true;
 
+    Triplane triplane;
+
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        triplane = GetComponentInChildren<Triplane>();
     }
 
     // Update is called once per frame
@@ -80,7 +83,8 @@ public class ControllableFlying : MonoBehaviour
 
         body.AddForce(transform.right.normalized * throttle);
         body.AddForce(Vector2.down * 20);
-        float lift = Mathf.Max(0, Mathf.Min(20, transform.up.normalized.y * speed));
+        var upsideDownFactor = triplane.isUpsideDown() ? -1.0f : 1.0f;
+        float lift = Mathf.Max(0, Mathf.Min(20, transform.up.normalized.y * speed * upsideDownFactor));
         body.AddForce(Vector2.up * lift);
 
         Debug.Log(lift + ", " + speed + ", " + throttle + ", " + transform.up.normalized.y + ", " + speed);
@@ -107,5 +111,10 @@ public class ControllableFlying : MonoBehaviour
     public void RotateCCW()
     {
         body.velocity = Quaternion.AngleAxis(rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
+    }
+
+    public void Roll()
+    {
+        triplane.Roll();
     }
 }

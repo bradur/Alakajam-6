@@ -39,4 +39,9 @@ public class Triplane : MonoBehaviour
         }
         rolled = !rolled;
     }
+
+    public bool isUpsideDown()
+    {
+        return rolled;
+    }
 }

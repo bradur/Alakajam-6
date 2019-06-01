@@ -39,6 +39,11 @@ public class PlayerPlaneControls : MonoBehaviour
             decelerate = true;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            flying.Roll();
+        }
+
         playerRoot.transform.position = transform.position;
     }
 
