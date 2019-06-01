@@ -11,11 +11,17 @@ public class ProjectileShooter : MonoBehaviour
     [SerializeField]
     private ProjectileConfig config;
 
-    public Projectile Shoot(Vector2 origin, Vector2 direction)
+    [SerializeField]
+    private Triplane triplane;
+    [SerializeField]
+    private GameObject bulletOrigin;
+
+    public Projectile Shoot(Vector2 direction)
     {
         Projectile newProjectile = config.Prefab.GetPooledInstance<Projectile>();
-        newProjectile.transform.position = origin;
+        newProjectile.transform.position = bulletOrigin.transform.position;
         newProjectile.Shoot(config.LifeTime, direction, config.Speed);
+        triplane.TriggerMuzzleFlash();
         return newProjectile;
     }
 }
