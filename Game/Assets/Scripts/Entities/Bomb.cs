@@ -55,6 +55,12 @@ public class Bomb : PooledObject
                 Kill();
             }
         }
+        
+        if (rb2D.velocity.magnitude > 0.01f)
+        {
+            float angleDiff = Vector3.SignedAngle(transform.right, rb2D.velocity, Vector3.forward);
+            transform.Rotate(Vector3.forward, angleDiff);
+        }
     }
 
     public void Kill()
