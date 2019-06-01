@@ -10,6 +10,9 @@ public class Bomb : PooledObject
     [SerializeField]
     private Rigidbody2D rb2D;
 
+    [SerializeField]
+    private GameObject explosion;
+
     private float lifeTimer = 0f;
     private float lifeTime = -1f;
     private bool alive = false;
@@ -27,6 +30,8 @@ public class Bomb : PooledObject
     }
 
     void Explode() {
+        GameObject xpl = Instantiate(explosion);
+        xpl.transform.position = transform.position;
         Kill();
     }
 

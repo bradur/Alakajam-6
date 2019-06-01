@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2D: {fileID: 4771178233959395358}
+  explosion: {fileID: 3101191099540408105, guid: 91c02269d128e6048a6198749c0293bc,
+    type: 3}
 --- !u!50 &4771178233959395358
 Rigidbody2D:
   serializedVersion: 4
