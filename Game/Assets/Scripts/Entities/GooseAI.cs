@@ -31,7 +31,7 @@ public class GooseAI : MonoBehaviour
         targetDir = playerPos - curPos;
 
         var angleDiff = Vector3.SignedAngle(transform.right, targetDir, Vector3.forward);
-        if (angleDiff < 1.0f && angleDiff > -1.0f)
+        if (angleDiff < 5.0f && angleDiff > -5.0f)
         {
             shooter.Shoot(transform.right);
         }

@@ -105,13 +105,13 @@ public class ControllableFlying : MonoBehaviour
 
     public void Accelerate()
     {
-        throttle += 4f * Time.fixedDeltaTime;
+        throttle += 10f * Time.fixedDeltaTime;
         throttle = Mathf.Min(throttle, maxThrottle);
     }
 
     public void Decelerate()
     {
-        throttle -= 4f * Time.fixedDeltaTime;
+        throttle -= 10f * Time.fixedDeltaTime;
         throttle = Mathf.Max(throttle, 0);
     }
 

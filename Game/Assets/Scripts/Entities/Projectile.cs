@@ -14,6 +14,10 @@ public class Projectile : PooledObject
     [SerializeField]
     private ParticleSystem trail;
 
+    [SerializeField]
+    private GameObject hitEffect;
+
+
     private float lifeTimer = 0f;
     private float lifeTime = -1f;
     private bool alive = false;
@@ -37,6 +41,13 @@ public class Projectile : PooledObject
                 Kill();
             }
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        GameObject effect = Instantiate(hitEffect);
+        effect.transform.position = transform.position;
+        Kill();
     }
 
     public void Kill()

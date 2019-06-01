@@ -33,6 +33,7 @@ public class ProjectileShooter : MonoBehaviour
             var offset = Vector2.Perpendicular(direction) * Random.Range(-dispersion, dispersion);
 
             Projectile newProjectile = config.Prefab.GetPooledInstance<Projectile>();
+            newProjectile.gameObject.layer = gameObject.layer;
             newProjectile.transform.position = bulletOrigin.transform.position;
             newProjectile.Shoot(config.LifeTime, direction + offset, config.Speed);
             triplane.TriggerMuzzleFlash();
