@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2D: {fileID: 4771178233959395358}
+  collider: {fileID: 4771178235050369747}
   explosion: {fileID: 3101191099540408105, guid: 91c02269d128e6048a6198749c0293bc,
     type: 3}
   bombSoundSource: {fileID: 444326448281360026}

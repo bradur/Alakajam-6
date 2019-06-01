@@ -10,6 +10,12 @@ public class BombDropper : MonoBehaviour
 
     [SerializeField]
     private BombConfig config;
+    
+    [SerializeField]
+    private Triplane triplane;
+
+    [SerializeField]
+    private GameObject bombOrigin;
 
     private float dropTimer = 0f;
     private bool canDrop = true;
@@ -19,9 +25,10 @@ public class BombDropper : MonoBehaviour
         if (canDrop) {
             Bomb newBomb = config.Prefab.GetPooledInstance<Bomb>();
             newBomb.transform.position = origin;
-            newBomb.gameObject.SetLayer(gameObject.layer, true);
+            //newBomb.gameObject.SetLayer(gameObject.layer, true);
             newBomb.gameObject.layer = gameObject.layer;
-            newBomb.Drop(config.LifeTime, direction, config.Speed);
+            var startVelocity = (Vector2)triplane.transform.up * -10.0f;
+            newBomb.Drop(config.LifeTime, direction + startVelocity, config.Speed);
             canDrop = false;
             return newBomb;
         }

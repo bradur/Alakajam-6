@@ -11,6 +11,9 @@ public class Bomb : PooledObject
     private Rigidbody2D rb2D;
 
     [SerializeField]
+    private Collider2D collider;
+
+    [SerializeField]
     private GameObject explosion;
 
     private float lifeTimer = 0f;
@@ -18,6 +21,8 @@ public class Bomb : PooledObject
     private bool alive = false;
     [SerializeField]
     private AudioSource bombSoundSource;
+
+    private float enableAt = 0;
 
     public void Drop(float lifeTime, Vector2 direction, float speed)
     {
@@ -30,6 +35,9 @@ public class Bomb : PooledObject
         this.lifeTime = lifeTime;
         lifeTimer = 0f;
         rb2D.velocity = direction * speed;
+
+        collider.enabled = false;
+        enableAt = Time.time + 0.3f;
     }
 
     void OnCollisionEnter2D(Collision2D collision2D)
@@ -56,6 +64,11 @@ public class Bomb : PooledObject
             }
         }
         
+        if (!collider.enabled && enableAt < Time.time)
+        {
+            collider.enabled = true;
+        }
+
         if (rb2D.velocity.magnitude > 0.01f)
         {
             float angleDiff = Vector3.SignedAngle(transform.right, rb2D.velocity, Vector3.forward);
