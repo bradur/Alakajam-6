@@ -15,8 +15,16 @@ public class MainMenu : MonoBehaviour {
     [SerializeField]
     private Image imgComponent;
 
+    [SerializeField]
+    private GameObject world;
+    [SerializeField]
+    private GameObject canvas;
+
     public void StartMission(int mission) {
-        gameObject.SetActive(false);
+        canvas.SetActive(false);
+        world.SetActive(true);
+        AudioPlayer.main.StopMenuMusic();
+        Debug.Log("Start");
     }
 
 }

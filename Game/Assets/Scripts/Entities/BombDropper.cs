@@ -19,6 +19,8 @@ public class BombDropper : MonoBehaviour
         if (canDrop) {
             Bomb newBomb = config.Prefab.GetPooledInstance<Bomb>();
             newBomb.transform.position = origin;
+            newBomb.gameObject.SetLayer(gameObject.layer, true);
+            newBomb.gameObject.layer = gameObject.layer;
             newBomb.Drop(config.LifeTime, direction, config.Speed);
             canDrop = false;
             return newBomb;

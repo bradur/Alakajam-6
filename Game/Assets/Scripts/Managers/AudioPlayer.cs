@@ -39,6 +39,10 @@ public class AudioPlayer : MonoBehaviour {
 
     }
 
+    public void StopMenuMusic(){
+        menuMusicSource.Stop();
+    }
+
     public void PlaySound(GameEvent gameEvent) {
         AudioClip clip = soundMap.GetAudioClip(gameEvent);
         soundSource.PlayOneShot(clip, 1f);
