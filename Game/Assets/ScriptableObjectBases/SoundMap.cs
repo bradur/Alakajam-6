@@ -8,7 +8,9 @@ using System.Collections.Generic;
 
 public enum GameEvent {
     None,
-    BuildingExplode
+    BuildingExplode,
+    BombDrops,
+    BombExplodes
 }
 
 [CreateAssetMenu(fileName = "SoundMap ", menuName = "ScriptableObjects/New SoundMap")]

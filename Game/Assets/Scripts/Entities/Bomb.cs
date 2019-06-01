@@ -16,20 +16,30 @@ public class Bomb : PooledObject
     private float lifeTimer = 0f;
     private float lifeTime = -1f;
     private bool alive = false;
+    [SerializeField]
+    private AudioSource bombSoundSource;
 
     public void Drop(float lifeTime, Vector2 direction, float speed)
     {
+        if (bombSoundSource == null)
+        {
+            bombSoundSource = GetComponent<AudioSource>();
+        }
+        bombSoundSource.Play();
         alive = true;
         this.lifeTime = lifeTime;
         lifeTimer = 0f;
         rb2D.velocity = direction * speed;
     }
 
-    void OnCollisionEnter2D(Collision2D collision2D) {
+    void OnCollisionEnter2D(Collision2D collision2D)
+    {
         Explode();
     }
 
-    void Explode() {
+    void Explode()
+    {
+        AudioPlayer.main.PlaySound(GameEvent.BombExplodes);
         GameObject xpl = Instantiate(explosion);
         xpl.transform.position = transform.position;
         Kill();
@@ -49,6 +59,7 @@ public class Bomb : PooledObject
 
     public void Kill()
     {
+        bombSoundSource.Stop();
         rb2D.velocity = Vector2.zero;
         transform.rotation = Quaternion.identity;
         alive = false;
