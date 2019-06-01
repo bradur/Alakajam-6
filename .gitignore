@@ -15,6 +15,7 @@
 /*.booproj
 /*.svd
 /Game/*.vs/*
+.vscode/
 
 *.v12.suo
 .suo
