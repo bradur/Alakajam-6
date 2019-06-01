@@ -24,7 +24,7 @@ public class PlayerShoot : MonoBehaviour
     {
         if (hotkeyMap.GetKeyDown(GameAction.Shoot))
         {
-            shooter.Shoot((Vector2)transform.position, (Vector2)transform.right);
+            shooter.Shoot((Vector2)shooter.transform.position, (Vector2)transform.right);
         }
     }
 }
