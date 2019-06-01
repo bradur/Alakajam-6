@@ -42,6 +42,7 @@ public class BombableBuilding : MonoBehaviour {
     void Kill() {
         boxCollider2D.enabled = false;
         effectInEffect = true;
+        AudioPlayer.main.PlaySound(GameEvent.BuildingExplode);
         explosionEffect.SetActive(true);
     }
 
