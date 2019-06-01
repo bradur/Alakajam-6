@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &86195643401917713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8562806192364911672}
+  m_Layer: 0
+  m_Name: BulletOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8562806192364911672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86195643401917713}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.617, y: 0.319, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4959053642361944814}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &748537048854345927
 GameObject:
   m_ObjectHideFlags: 0
@@ -28775,6 +28805,8 @@ GameObject:
   - component: {fileID: 3891233075519588207}
   - component: {fileID: 8218611918272875773}
   - component: {fileID: 1576260061}
+  - component: {fileID: 9034480472380861416}
+  - component: {fileID: 743312467250015905}
   m_Layer: 0
   m_Name: triplane
   m_TagString: Untagged
@@ -28803,6 +28835,7 @@ Transform:
   - {fileID: 4404063738721311427}
   - {fileID: 8674559083102681988}
   - {fileID: 1407709383073913498}
+  - {fileID: 8562806192364911672}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -28856,6 +28889,34 @@ CapsuleCollider2D:
   m_Offset: {x: 0.30705616, y: -0.14304486}
   m_Size: {x: 3.2862303, y: 0.89233464}
   m_Direction: 1
+--- !u!114 &9034480472380861416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872429768380105455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4ebdb7481a01044a8d5e276c9e07a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 6ed9b8e1655cffd4bb71152fc1939995, type: 2}
+  triplane: {fileID: 3891233075519588207}
+  bulletOrigin: {fileID: 86195643401917713}
+--- !u!114 &743312467250015905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7872429768380105455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f76e497754af6e4ca7b8e14503af340, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config: {fileID: 11400000, guid: 671db27058c27f848bb68ca7d3646f96, type: 2}
 --- !u!1 &7923389810634943764
 GameObject:
   m_ObjectHideFlags: 0

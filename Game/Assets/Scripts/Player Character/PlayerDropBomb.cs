@@ -6,19 +6,18 @@ using UnityEngine;
 using System.Collections;
 
 public class PlayerDropBomb : MonoBehaviour {
-
-    [SerializeField]
+    
     private BombDropper dropper;
 
     [SerializeField]
     private HotkeyMap hotkeyMap;
-
-    [SerializeField]
+    
     private Rigidbody2D rb2D;
 
     void Start()
     {
-
+        dropper = GetComponentInChildren<BombDropper>();
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
 

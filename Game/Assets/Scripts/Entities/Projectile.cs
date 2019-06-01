@@ -11,6 +11,9 @@ public class Projectile : PooledObject
     [SerializeField]
     private Rigidbody2D rb2D;
 
+    [SerializeField]
+    private ParticleSystem trail;
+
     private float lifeTimer = 0f;
     private float lifeTime = -1f;
     private bool alive = false;
@@ -21,6 +24,7 @@ public class Projectile : PooledObject
         this.lifeTime = lifeTime;
         lifeTimer = 0f;
         rb2D.velocity = direction * speed;
+        trail.Play();
     }
 
     void Update()
