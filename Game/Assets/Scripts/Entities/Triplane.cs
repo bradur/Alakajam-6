@@ -5,7 +5,10 @@ using UnityEngine;
 public class Triplane : MonoBehaviour
 {
     [SerializeField]
-    bool TriggerRoll = false;
+    bool Trigger = false;
+
+    [SerializeField]
+    ParticleSystem flash, smoke;
 
     bool rolled = false;
     Animator anim;
@@ -20,10 +23,10 @@ public class Triplane : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (TriggerRoll)
+        if (Trigger)
         {
-            Roll();
-            TriggerRoll = false;
+            TriggerMuzzleFlash();
+            Trigger = false;
         }
     }
 
@@ -43,5 +46,11 @@ public class Triplane : MonoBehaviour
     public bool isUpsideDown()
     {
         return rolled;
+    }
+
+    public void TriggerMuzzleFlash()
+    {
+        flash.Play();
+        smoke.Play();
     }
 }
