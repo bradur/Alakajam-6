@@ -1210,7 +1210,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2132000935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2bb9c8978023f44aa39c123f8229c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ffba85f9f7cd7a4b84573ec255c15f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 11400000, guid: 3a9362548191a854dabc576993a0d026, type: 2}
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   lift: 9.81
   rotateSpeed: 180
   maxVel: 10
-  entityPosition: {fileID: 11400000, guid: 3a9362548191a854dabc576993a0d026, type: 2}
+  entityPosition: {fileID: 0}
 --- !u!50 &2132000939
 Rigidbody2D:
   serializedVersion: 4

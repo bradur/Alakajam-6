@@ -18,8 +18,7 @@ public class PlayerShoot : MonoBehaviour
 
     [SerializeField]
     float dispersion = 0.05f;
-
-
+    
     float lastShot = 0;
 
     void Start()
@@ -32,12 +31,15 @@ public class PlayerShoot : MonoBehaviour
     {
         if (hotkeyMap.GetKey(GameAction.Shoot))
         {
+            shooter.Shoot((Vector2)transform.right);
+            /*
             if (lastShot + 1.0/fireRate < Time.time)
             {
                 float offset = Random.Range(-dispersion, dispersion);
                 shooter.Shoot((Vector2)transform.right + offset * (Vector2)transform.up);
                 lastShot = Time.time;
             }
+            */
         }
     }
 }
