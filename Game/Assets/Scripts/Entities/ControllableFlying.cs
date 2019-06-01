@@ -15,6 +15,9 @@ public class ControllableFlying : MonoBehaviour
     float rotateSpeed = 1f;
     [SerializeField]
     float maxVel;
+    [SerializeField]
+    private RuntimeVector3 entityPosition;
+
     float throttle = 5f;
     float maxThrottle = 15f;
     float gravity = 0f;
@@ -24,6 +27,12 @@ public class ControllableFlying : MonoBehaviour
     float damp = 0.99f;
 
     bool firstTick = true;
+
+    bool aiAccelerate = false;
+    bool aiRotate = false;
+    float aiRotateTarget = 0f; //angle
+    Vector3 aiRotateTargetV;
+    AiMovementFinished aiCallback = null;
 
     Triplane triplane;
 
@@ -44,6 +53,7 @@ public class ControllableFlying : MonoBehaviour
         }
         Debug.DrawLine(transform.position, transform.position + Vector3.down, Color.red);
         Debug.DrawLine(transform.position, transform.position + new Vector3(body.velocity.x, body.velocity.y, 0));
+        Debug.DrawLine(transform.position, transform.position + aiRotateTargetV, Color.blue);
     }
 
     private void FixedUpdate()
@@ -53,26 +63,6 @@ public class ControllableFlying : MonoBehaviour
             firstTick = false;
             body.velocity = Vector3.right * throttle;
         }
-
-        /*
-        var speed = body.velocity.magnitude;
-
-        float gravityAcc = 9.81f / 2 * Time.fixedDeltaTime;
-        if (speed > 5f)
-        {
-            gravity = 0;
-        }
-        else
-        {
-            gravity += gravityAcc;
-        }
-
-        gravity = gravity * Mathf.Max(0, (10 - speed) / 10);
-        
-        body.velocity = body.velocity.normalized * throttle;
-        body.velocity += Vector2.down * gravity;
-        */
-
 
         if (body.velocity.magnitude > 80)
         {
@@ -87,12 +77,41 @@ public class ControllableFlying : MonoBehaviour
         float lift = Mathf.Max(0, Mathf.Min(20, transform.up.normalized.y * speed * upsideDownFactor));
         body.AddForce(Vector2.up * lift);
 
-        Debug.Log(lift + ", " + speed + ", " + throttle + ", " + transform.up.normalized.y + ", " + speed);
+        if (entityPosition != null)
+        {
+            entityPosition.Value = transform.position;
+        }
+
+        runAIMovements();
+
+        //Debug.Log(lift + ", " + speed + ", " + throttle + ", " + transform.up.normalized.y + ", " + speed);
+    }
+
+    private void runAIMovements()
+    {
+        if(aiRotate)
+        {
+            //body.velocity = Quaternion.AngleAxis(-rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
+            //Debug.Log(Mathf.Abs(Vector3.Angle(getVec3(body.velocity), Vector3.right) - aiRotateTarget));
+            /*if(Mathf.Abs(Vector3.Angle(getVec3(body.velocity), Vector3.right) - aiRotateTarget) < 5f)
+            {
+                aiCallback(); // done!
+                aiRotate = false;
+            }*/
+            float angleDiff = Vector3.SignedAngle(aiRotateTargetV, body.velocity, Vector3.forward);
+            transform.Rotate(Vector3.forward, /*20*rotateSpeed * Time.fixedDeltaTime **/ angleDiff);
+            Debug.Log(angleDiff + ", " + body.velocity + ", " + aiRotateTargetV + ", " + Vector3.Distance(getVec3(body.velocity), aiRotateTargetV));
+            Debug.DrawLine(transform.position, transform.position + aiRotateTargetV);
+            if (Vector3.Distance(getVec3(body.velocity), aiRotateTargetV) < 1f)
+            {
+                aiCallback();
+                aiRotate = false;
+            }
+        }
     }
 
     public void Accelerate()
     {
-        Debug.Log("Accelerate");
         throttle += 4f * Time.fixedDeltaTime;
         throttle = Mathf.Min(throttle, maxThrottle);
     }
@@ -108,6 +127,27 @@ public class ControllableFlying : MonoBehaviour
         body.velocity = Quaternion.AngleAxis(-rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
     }
 
+    public void RotateCW(float angle, AiMovementFinished callback, bool accelerate)
+    {
+        aiRotate = true;
+        aiRotateTarget = angle;
+        aiAccelerate = accelerate;
+        if(callback != null)
+        {
+            aiCallback = callback;
+        }
+    }
+    public void RotateCW(Vector3 target, AiMovementFinished callback, bool accelerate)
+    {
+        aiRotate = true;
+        aiRotateTargetV = target;
+        aiAccelerate = accelerate;
+        if (callback != null)
+        {
+            aiCallback = callback;
+        }
+    }
+
     public void RotateCCW()
     {
         body.velocity = Quaternion.AngleAxis(rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
@@ -117,4 +157,11 @@ public class ControllableFlying : MonoBehaviour
     {
         triplane.Roll();
     }
+
+    private Vector3 getVec3(Vector2 v)
+    {
+        return new Vector3(v.x, v.y, 0);
+    }
 }
+
+public delegate bool AiMovementFinished();
