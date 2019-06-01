@@ -47,6 +47,14 @@ public class Projectile : PooledObject
     {
         GameObject effect = Instantiate(hitEffect);
         effect.transform.position = transform.position;
+
+        GameObject other = collider.gameObject;
+        if (other.tag == "Bomb")
+        {
+            Bomb bomb = other.GetComponent<Bomb>();
+            bomb.Explode();
+        }
+
         Kill();
     }
 

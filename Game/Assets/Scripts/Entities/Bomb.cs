@@ -45,7 +45,7 @@ public class Bomb : PooledObject
         Explode();
     }
 
-    void Explode()
+    public void Explode()
     {
         AudioPlayer.main.PlaySound(GameEvent.BombExplodes);
         GameObject xpl = Instantiate(explosion);
