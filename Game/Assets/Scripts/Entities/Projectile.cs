@@ -7,12 +7,18 @@ using System.Collections;
 
 public class Projectile : PooledObject
 {
+    [SerializeField]
+    private float Damage = 5.0f;
 
     [SerializeField]
     private Rigidbody2D rb2D;
 
     [SerializeField]
     private ParticleSystem trail;
+
+    [SerializeField]
+    private GameObject hitEffect;
+
 
     private float lifeTimer = 0f;
     private float lifeTime = -1f;
@@ -37,6 +43,26 @@ public class Projectile : PooledObject
                 Kill();
             }
         }
+    }
+
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        GameObject effect = Instantiate(hitEffect);
+        effect.transform.position = transform.position;
+
+        GameObject other = collider.gameObject;
+        if (other.tag == "Bomb")
+        {
+            Bomb bomb = other.GetComponent<Bomb>();
+            bomb.Explode();
+        }
+        else if (other.tag == "Plane")
+        {
+            Triplane plane = other.GetComponent<Triplane>();
+            plane.Hurt(Damage);
+        }
+
+        Kill();
     }
 
     public void Kill()

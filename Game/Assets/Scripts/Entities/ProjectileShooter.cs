@@ -15,13 +15,30 @@ public class ProjectileShooter : MonoBehaviour
     private Triplane triplane;
     [SerializeField]
     private GameObject bulletOrigin;
+    
+    [SerializeField]
+    float fireRate = 10;
+
+    [SerializeField]
+    float dispersion = 0.05f;
+
+    float lastShot = 0;
 
     public Projectile Shoot(Vector2 direction)
     {
-        Projectile newProjectile = config.Prefab.GetPooledInstance<Projectile>();
-        newProjectile.transform.position = bulletOrigin.transform.position;
-        newProjectile.Shoot(config.LifeTime, direction, config.Speed);
-        triplane.TriggerMuzzleFlash();
-        return newProjectile;
+
+        if (lastShot + 1.0 / fireRate < Time.time)
+        {
+            lastShot = Time.time;
+            var offset = Vector2.Perpendicular(direction) * Random.Range(-dispersion, dispersion);
+
+            Projectile newProjectile = config.Prefab.GetPooledInstance<Projectile>();
+            newProjectile.gameObject.layer = gameObject.layer;
+            newProjectile.transform.position = bulletOrigin.transform.position;
+            newProjectile.Shoot(config.LifeTime, direction + offset, config.Speed);
+            triplane.TriggerMuzzleFlash();
+            return newProjectile;
+        }
+        return null;
     }
 }

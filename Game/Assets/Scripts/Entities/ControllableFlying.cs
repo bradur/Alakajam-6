@@ -36,9 +36,22 @@ public class ControllableFlying : MonoBehaviour
 
     Triplane triplane;
 
+    [SerializeField]
+    private float engineSoundPitch = 0.25f;
+    private AudioSource engineSoundSource;
+    private float originalEngineSoundvolume;
+
+
+    [SerializeField]
+    private RuntimeBool muteSounds;
+
     // Start is called before the first frame update
     void Start()
     {
+        engineSoundSource = GetComponent<AudioSource>();
+        if (engineSoundSource != null) {
+            originalEngineSoundvolume = engineSoundSource.volume;
+        }
         body = GetComponent<Rigidbody2D>();
         triplane = GetComponentInChildren<Triplane>();
     }
@@ -54,6 +67,14 @@ public class ControllableFlying : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + Vector3.down, Color.red);
         Debug.DrawLine(transform.position, transform.position + new Vector3(body.velocity.x, body.velocity.y, 0));
         Debug.DrawLine(transform.position, transform.position + aiRotateTargetV, Color.blue);
+        if (engineSoundSource != null)
+        {
+            if (muteSounds.Toggle) {
+                engineSoundSource.volume = 0f;
+            } else if (engineSoundSource.volume == 0) {
+                engineSoundSource.volume = originalEngineSoundvolume;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -81,7 +102,10 @@ public class ControllableFlying : MonoBehaviour
         {
             entityPosition.Value = transform.position;
         }
-
+        if (engineSoundSource != null)
+        {
+            engineSoundSource.pitch = speed * engineSoundPitch;
+        }
         runAIMovements();
 
         //Debug.Log(lift + ", " + speed + ", " + throttle + ", " + transform.up.normalized.y + ", " + speed);
@@ -89,10 +113,10 @@ public class ControllableFlying : MonoBehaviour
 
     private void runAIMovements()
     {
-        if(aiRotate)
+        if (aiRotate)
         {
             float angleDiff = Vector3.SignedAngle(aiRotateTargetV, body.velocity, Vector3.forward);
-            
+
             Debug.Log(angleDiff + ", " + body.velocity + ", " + aiRotateTargetV + ", " + Vector3.Distance(getVec3(body.velocity), aiRotateTargetV));
             Debug.DrawLine(transform.position, transform.position + aiRotateTargetV);
             if (Vector3.Distance(getVec3(body.velocity), aiRotateTargetV) < 1f)
@@ -105,13 +129,13 @@ public class ControllableFlying : MonoBehaviour
 
     public void Accelerate()
     {
-        throttle += 4f * Time.fixedDeltaTime;
+        throttle += 10f * Time.fixedDeltaTime;
         throttle = Mathf.Min(throttle, maxThrottle);
     }
 
     public void Decelerate()
     {
-        throttle -= 4f * Time.fixedDeltaTime;
+        throttle -= 10f * Time.fixedDeltaTime;
         throttle = Mathf.Max(throttle, 0);
     }
 
@@ -125,7 +149,7 @@ public class ControllableFlying : MonoBehaviour
         aiRotate = true;
         aiRotateTarget = angle;
         aiAccelerate = accelerate;
-        if(callback != null)
+        if (callback != null)
         {
             aiCallback = callback;
         }
@@ -149,6 +173,11 @@ public class ControllableFlying : MonoBehaviour
     public void Roll()
     {
         triplane.Roll();
+    }
+
+    public bool isUpsideDown()
+    {
+        return triplane.isUpsideDown();
     }
 
     private Vector3 getVec3(Vector2 v)
