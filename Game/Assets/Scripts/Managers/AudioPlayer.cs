@@ -54,7 +54,7 @@ public class AudioPlayer : MonoBehaviour {
     }
 
     public void UnPauseMenuMusic() {
-        menuMusicSource.UnPause();
+        menuMusicSource.Play();
     }
 
     public void UnPauseBossMusic() {

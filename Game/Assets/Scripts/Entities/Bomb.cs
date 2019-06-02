@@ -42,6 +42,12 @@ public class Bomb : PooledObject
 
     void OnCollisionEnter2D(Collision2D collision2D)
     {
+        GameObject other = collision2D.collider.gameObject;
+        if (other.tag == "Plane")
+        {
+            Triplane plane = other.GetComponent<Triplane>();
+            plane.Hurt(1000);
+        }
         Explode();
     }
 

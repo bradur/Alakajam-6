@@ -15,4 +15,5 @@ MonoBehaviour:
   configName: Bomb
   Speed: 1
   LifeTime: -1
+  DropInterval: 0.8
   prefab: {fileID: 4771178233959395352, guid: 4c54267a16718a944b3affeab80a2e06, type: 3}

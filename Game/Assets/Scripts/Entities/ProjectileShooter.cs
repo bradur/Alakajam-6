@@ -26,7 +26,6 @@ public class ProjectileShooter : MonoBehaviour
 
     public Projectile Shoot(Vector2 direction)
     {
-
         if (lastShot + 1.0 / fireRate < Time.time)
         {
             lastShot = Time.time;

@@ -16,6 +16,10 @@ public class BossTransition : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    void Start() {
+        bossVisible.Toggle = false;
+    }
+
     void Update() {
         if (bossVisible.Toggle) {
             bossVisible.Toggle = false;

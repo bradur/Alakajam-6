@@ -14,6 +14,9 @@ public class PlayerDropBomb : MonoBehaviour {
     
     private Rigidbody2D rb2D;
 
+    [SerializeField]
+    private RuntimeBool playerControlsEnabled;
+
     void Start()
     {
         dropper = GetComponentInChildren<BombDropper>();
@@ -23,9 +26,11 @@ public class PlayerDropBomb : MonoBehaviour {
 
     void Update()
     {
-        if (hotkeyMap.GetKeyDown(GameAction.DropBomb))
-        {
-            dropper.Drop((Vector2)dropper.transform.position, rb2D.velocity);
+        if (playerControlsEnabled.Toggle) {
+            if (hotkeyMap.GetKeyDown(GameAction.DropBomb))
+            {
+                dropper.Drop((Vector2)dropper.transform.position, rb2D.velocity);
+            }
         }
     }
 }

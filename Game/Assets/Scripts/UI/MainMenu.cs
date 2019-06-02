@@ -6,25 +6,26 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+using UnityEngine.SceneManagement;
+
 public class MainMenu : MonoBehaviour {
 
     [SerializeField]
-    private Text txtComponent;
-    [SerializeField]
-    private Color colorVariable;
-    [SerializeField]
-    private Image imgComponent;
+    private GameObject fadeToBlack;
 
-    [SerializeField]
-    private GameObject world;
-    [SerializeField]
-    private GameObject canvas;
+    void Start() {
+        AudioPlayer.main.UnPauseMenuMusic();
+    }
 
+    int nextMission = 0;
     public void StartMission(int mission) {
-        canvas.SetActive(false);
-        world.SetActive(true);
+        nextMission = mission;
         AudioPlayer.main.PauseMenuMusic();
-        Debug.Log("Start");
+        fadeToBlack.SetActive(true);
+    }
+
+    public void LoadMission() {
+        SceneManager.LoadScene(nextMission);
     }
 
 }
