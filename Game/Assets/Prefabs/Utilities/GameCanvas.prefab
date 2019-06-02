@@ -355,7 +355,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: ea90481695dadd0449545e1f72a5feaf, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -599,7 +599,7 @@ MonoBehaviour:
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Material: {fileID: 2100000, guid: ea90481695dadd0449545e1f72a5feaf, type: 2}
+  m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
@@ -1626,6 +1626,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDied: {fileID: 11400000, guid: c970b03132cd7604d96f97d32f6d95fc, type: 2}
   enemyDied: {fileID: 11400000, guid: d7699457230a93c459e79f032bf227b1, type: 2}
+  levelsFinished: {fileID: 11400000, guid: f388f9dd3f3059f42a25bb1bbf26d6da, type: 2}
+  levelNumber: 0
   endText: {fileID: 8109476173409660959}
   failText: You died!
   successText: Well done!

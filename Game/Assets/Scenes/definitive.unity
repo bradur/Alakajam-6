@@ -525,6 +525,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -20.000244
       objectReference: {fileID: 0}
+    - target: {fileID: 5147448690298884453, guid: b642e9cd71dde0d44ac1684fc4e82d57,
+        type: 3}
+      propertyPath: levelNumber
+      value: 
+      objectReference: {fileID: 11400000, guid: 37875cb714ffdf14f8b72f30b9e18a04,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b642e9cd71dde0d44ac1684fc4e82d57, type: 3}
 --- !u!1001 &1180346747

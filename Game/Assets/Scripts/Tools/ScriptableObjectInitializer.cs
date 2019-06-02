@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ScriptableObjectInitializer : MonoBehaviour
 {
+    public static ScriptableObjectInitializer Instance { get; private set; }
     [SerializeField]
     private RuntimeInt LevelsFinished;
     [SerializeField]
@@ -11,8 +12,16 @@ public class ScriptableObjectInitializer : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-        LevelsFinished.Count = defaultLevelsFinished;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+            LevelsFinished.Count = defaultLevelsFinished;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Start is called before the first frame update

@@ -7,13 +7,20 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class LevelOutro : MonoBehaviour {
+public class LevelOutro : MonoBehaviour
+{
 
     [SerializeField]
     private RuntimeBool playerDied;
 
     [SerializeField]
     private RuntimeBool enemyDied;
+
+    [SerializeField]
+    private RuntimeInt levelsFinished;
+
+    [SerializeField]
+    private ConfigInt levelNumber;
 
     [SerializeField]
     private Text endText;
@@ -26,21 +33,33 @@ public class LevelOutro : MonoBehaviour {
     private bool started = false;
 
     private Animator animator;
-    void Start () {
+    void Start()
+    {
         animator = GetComponent<Animator>();
         playerDied.Toggle = false;
         enemyDied.Toggle = false;
     }
 
-    void Update () {
-        if (!started && (playerDied.Toggle || enemyDied.Toggle)) {
+    void Update()
+    {
+        if (!started && (playerDied.Toggle || enemyDied.Toggle))
+        {
             started = true;
             endText.text = playerDied.Toggle ? failText : successText;
             animator.enabled = true;
+
+            if (enemyDied.Toggle)
+            {
+                if (levelsFinished.Count < levelNumber.Value)
+                {
+                    levelsFinished.Count = levelNumber.Value;
+                }
+            }
         }
     }
 
-    public void LoadMenu() {
+    public void LoadMenu()
+    {
         SceneManager.LoadScene(0);
     }
 }
