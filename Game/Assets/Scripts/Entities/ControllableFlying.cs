@@ -18,7 +18,7 @@ public class ControllableFlying : MonoBehaviour
     [SerializeField]
     private RuntimeVector3 entityPosition;
 
-    float throttle = 5f;
+    public float throttle = 5f;
     float maxThrottle = 15f;
     float gravity = 0f;
     Quaternion startRot;
@@ -178,6 +178,11 @@ public class ControllableFlying : MonoBehaviour
     public bool isUpsideDown()
     {
         return triplane.isUpsideDown();
+    }
+
+    public Vector3 transformDown()
+    {
+        return triplane.isUpsideDown() ? transform.up : -transform.up;
     }
 
     private Vector3 getVec3(Vector2 v)
