@@ -29,6 +29,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private List<SuccessStamp> levelButtons;
 
+    [SerializeField]
+    private GameObject medalGraffa;
+
     void Start()
     {
         AudioPlayer.main.UnPauseMenuMusic();
@@ -45,6 +48,7 @@ public class MainMenu : MonoBehaviour
             //GAME FINISHED!
             levelButtons.ForEach(x => x.gameObject.SetActive(true));
             levelButtons.ForEach(x => x.SetSuccess(true));
+            medalGraffa.SetActive(true);
         }
         else
         {
@@ -87,5 +91,9 @@ public class MainMenu : MonoBehaviour
     public void RightIsThrottle()
     {
         IsNormalControls.Toggle = false;
+    }
+
+    public void QuitGame() {
+        Application.Quit();
     }
 }
