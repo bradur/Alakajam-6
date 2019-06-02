@@ -27,22 +27,27 @@ public class PlayerShoot : MonoBehaviour
     }
 
 
+    [SerializeField]
+    private RuntimeBool playerControlsEnabled;
+
     void Update()
     {
-        if (hotkeyMap.GetKey(GameAction.Shoot))
-        {
-            Projectile projectile = shooter.Shoot((Vector2)transform.right);
-            if (projectile != null) {
-                AudioPlayer.main.PlaySound(GameEvent.PlayerGunFires);
-            }
-            /*
-            if (lastShot + 1.0/fireRate < Time.time)
+        if (playerControlsEnabled.Toggle) {
+            if (hotkeyMap.GetKey(GameAction.Shoot))
             {
-                float offset = Random.Range(-dispersion, dispersion);
-                shooter.Shoot((Vector2)transform.right + offset * (Vector2)transform.up);
-                lastShot = Time.time;
+                Projectile projectile = shooter.Shoot((Vector2)transform.right);
+                if (projectile != null) {
+                    AudioPlayer.main.PlaySound(GameEvent.PlayerGunFires);
+                }
+                /*
+                if (lastShot + 1.0/fireRate < Time.time)
+                {
+                    float offset = Random.Range(-dispersion, dispersion);
+                    shooter.Shoot((Vector2)transform.right + offset * (Vector2)transform.up);
+                    lastShot = Time.time;
+                }
+                */
             }
-            */
         }
     }
 }
