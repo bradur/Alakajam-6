@@ -730,6 +730,8 @@ MonoBehaviour:
   playerControlsEnabled: {fileID: 11400000, guid: 75aeb1906a058904f997ac7e4af6422a,
     type: 2}
   hotkeyMap: {fileID: 11400000, guid: 7b9d67556e2c50e40b9a325d32c806f2, type: 2}
+  objectivesAccomplished: {fileID: 11400000, guid: 8412a81005693654a9e5460fa5633358,
+    type: 2}
 --- !u!1 &5946135366756037726
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,6 +1449,8 @@ MonoBehaviour:
   bossVisible: {fileID: 11400000, guid: 41656048e95f60746965ad1083621791, type: 2}
   muteSounds: {fileID: 11400000, guid: eb9e3bb2ed62d2b469b88875889576c3, type: 2}
   animator: {fileID: 6384758696829520555}
+  objectivesAccomplished: {fileID: 11400000, guid: 8412a81005693654a9e5460fa5633358,
+    type: 2}
 --- !u!1 &8341309991558665569
 GameObject:
   m_ObjectHideFlags: 0

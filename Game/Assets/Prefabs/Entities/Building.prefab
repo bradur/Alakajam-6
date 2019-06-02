@@ -81,8 +81,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionEffect: {fileID: 8072128411004587788}
   effectDuration: 0.5
+  mustBeBombed: 0
   destroyedSprite: {fileID: -6126254571797296831, guid: 2d7bde5a8f162564ab89bff9dc930834,
     type: 3}
+  deletableObjects: []
+  objectivesAccomplished: {fileID: 11400000, guid: 8412a81005693654a9e5460fa5633358,
+    type: 2}
+  prefabToSpawnAfterDeath: {fileID: 0}
 --- !u!212 &8072128411530884476
 SpriteRenderer:
   m_ObjectHideFlags: 0

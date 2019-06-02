@@ -10,9 +10,13 @@ public class CameraManager : MonoBehaviour {
 
     [SerializeField]
     private Cinemachine.CinemachineVirtualCamera virtualCamera;
+    [SerializeField]
+    private Cinemachine.CinemachineConfiner confiner;
 
     void Start () {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject confinerVolume = GameObject.FindGameObjectWithTag("WorldConfines");
         virtualCamera.Follow = player.transform;
+        confiner.m_BoundingVolume = confinerVolume.GetComponent<BoxCollider>();
     }
 }

@@ -339,3 +339,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   virtualCamera: {fileID: 8498935303989753399}
+  confiner: {fileID: 8498935303989753397}

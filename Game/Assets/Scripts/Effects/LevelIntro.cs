@@ -14,9 +14,17 @@ public class LevelIntro : MonoBehaviour {
     [SerializeField]
     private HotkeyMap hotkeyMap;
 
+    [SerializeField]
+    private RuntimeInt objectivesAccomplished;
+
     private Animator animator;
 
     private bool started = false;
+
+    void Awake() {
+        objectivesAccomplished.Count = 0;
+        objectivesAccomplished.Target = 0;
+    }
 
     void Start() {
         animator = GetComponent<Animator>();
