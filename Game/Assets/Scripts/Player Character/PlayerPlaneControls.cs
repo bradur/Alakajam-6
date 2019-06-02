@@ -12,36 +12,79 @@ public class PlayerPlaneControls : MonoBehaviour, Killable
     bool decelerate = false;
 
     [SerializeField]
+    private RuntimeBool isNormalControls;
+
+    [SerializeField]
+    private RuntimeBool isInvertedControls;
+
+    [SerializeField]
     private RuntimeBool playerControlsEnabled;
 
     [SerializeField]
     private RuntimeBool playerDied;
+
+    KeyCode throttle;
+    KeyCode dethrottle;
+    KeyCode turnCW;
+    KeyCode turnCCW;
 
     // Start is called before the first frame update
     void Start()
     {
         flying = GetComponent<ControllableFlying>();
         GetComponentInChildren<Triplane>().ParentPlane = this;
+
+        if(isNormalControls.Toggle)
+        {
+            throttle = KeyCode.UpArrow;
+            dethrottle = KeyCode.DownArrow;
+            if (isInvertedControls.Toggle)
+            {
+                turnCW = KeyCode.RightArrow;
+                turnCCW = KeyCode.LeftArrow;
+            }
+            else
+            {
+                turnCW = KeyCode.LeftArrow;
+                turnCCW = KeyCode.RightArrow;
+            }
+        }
+        else
+        {
+            throttle = KeyCode.RightArrow;
+            dethrottle = KeyCode.LeftArrow;
+            if (isInvertedControls.Toggle)
+            {
+                turnCW = KeyCode.UpArrow;
+                turnCCW = KeyCode.DownArrow;
+            }
+            else
+            {
+                turnCW = KeyCode.DownArrow;
+                turnCCW = KeyCode.UpArrow;
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+
         if (playerControlsEnabled.Toggle) {
-            if (Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(turnCW))
             {
                 rotateClockwise = true;
             }
-            else if (Input.GetKey(KeyCode.LeftArrow))
+            else if (Input.GetKey(turnCCW))
             {
                 rotateCounterClockwise = true;
             }
 
-            if (Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(throttle))
             {
                 accelerate = true;
             }
-            else if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(dethrottle))
             {
                 decelerate = true;
             }
