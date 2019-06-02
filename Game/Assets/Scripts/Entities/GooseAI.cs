@@ -44,6 +44,8 @@ public class GooseAI : MonoBehaviour, Killable
     Vector3 playerDir;
     float playerDist;
 
+    float bombTimer = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -160,10 +162,31 @@ public class GooseAI : MonoBehaviour, Killable
 
     private void updateState()
     {
-        if (playerDist < 5.0f)
+        if (state == State.START)
+        {
+            Debug.Log(playerDist);
+            if (playerDist < 30.0f)
+            {
+                state = State.ENGAGE;
+                updateStateTimer = Time.time + 3f;
+            }
+            return;
+        }
+
+        if (state != State.RUN && playerDist < 10.0f)
         {
             state = State.RUN;
             updateStateTimer = Time.time + 1f;
+            return;
+        }
+
+        if (state == State.ASCEND && playerDir.y + 5 < 0)
+        {
+            state = State.BOMB;
+            targetDir = new Vector2(playerDir.x, 0);
+            updateStateTimer = Time.time + 4f;
+            bombTimer = Time.time + 0.5f;
+            return;
         }
 
         if (updateStateTimer < 0)
@@ -175,15 +198,7 @@ public class GooseAI : MonoBehaviour, Killable
             return;
         }
 
-        if (state == State.ASCEND && playerDir.y + 5 < 0)
-        {
-            state = State.BOMB;
-            targetDir = new Vector2(playerDir.x, 0);
-            updateStateTimer = Time.time + 4f;
-            return;
-        }
-
-        if (playerDir.y > 0)
+        if (playerDir.y > 5.0f)
         {
             state = State.ASCEND;
             updateStateTimer = Time.time + 3f;
@@ -191,14 +206,15 @@ public class GooseAI : MonoBehaviour, Killable
         }
         
 
-        updateStateTimer = Time.time + 2f;
+        updateStateTimer = Time.time + 5f;
         state = State.ENGAGE;
     }
 
     private void commonRoutine()
     {
         var angleDiff = Vector3.Angle(transform.right, playerDir);
-        if (angleDiff < 5.0f && playerDist < 40f)
+        Debug.Log(transform.right + ", " + playerDir + ", " + angleDiff + ", " + playerDist);
+        if (state != State.START && angleDiff < 5.0f && playerDist < 40f)
         {
             shoot = true;
         }
@@ -209,7 +225,7 @@ public class GooseAI : MonoBehaviour, Killable
 
         var bombDir = plane.transformDown().normalized + transform.right.normalized;
         var angleDiffBomb = Vector3.Angle(bombDir, playerDir);
-        if (state == State.BOMB && angleDiffBomb < 20.0f)
+        if (state == State.BOMB && angleDiffBomb < 20.0f && bombTimer < Time.time)
         {
             bomb = true;
         }
@@ -239,28 +255,32 @@ public class GooseAI : MonoBehaviour, Killable
 
     private void startRoutine()
     {
-        targetDir = Vector2.left;
-        targetThrottle = 10.0f;
+        targetDir = playerDir;
+        targetThrottle = maxThrottle;
     }
 
     private void engageRoutine()
     {
         targetDir = playerDir;
+        targetThrottle = 12.0f;
     }
 
     private void ascendRoutine()
     {
         targetDir = new Vector2(targetDir.x, 0).normalized + Vector2.up;
+        targetThrottle = maxThrottle;
     }
 
     private void bombRoutine()
     {
         targetDir = new Vector2(targetDir.x, 0);
+        targetThrottle = 8.0f;
     }
 
     private void runRoutine()
     {
         targetDir = -playerDir.normalized - Vector3.up;
+        targetThrottle = maxThrottle;
     }
 
     private void avoidanceRoutine()
