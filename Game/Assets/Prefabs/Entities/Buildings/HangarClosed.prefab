@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7566284174858060271}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,9 +46,9 @@ GameObject:
   - component: {fileID: 7566284175585197151}
   - component: {fileID: 7566284175585197150}
   - component: {fileID: 7566284175585197137}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HangarClosed
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,6 +176,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingSmoke
       objectReference: {fileID: 0}
+    - target: {fileID: 7444114435657144392, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7444114435657144399, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,6 +266,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingExplosion (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3101191099540408105, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3101191099540408108, guid: da5f120db36508c4191c9d9f2dada734,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -326,6 +336,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3101191098727801763, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3101191099540408107, guid: da5f120db36508c4191c9d9f2dada734,
         type: 3}
       propertyPath: startDelay.scalar
@@ -355,6 +370,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BuildingSmoke (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7444114435657144392, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7444114435657144399, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
         type: 3}
@@ -441,6 +461,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingExplosion
       objectReference: {fileID: 0}
+    - target: {fileID: 3101191099540408105, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3101191099540408108, guid: da5f120db36508c4191c9d9f2dada734,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -505,6 +530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101191098727801763, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5f120db36508c4191c9d9f2dada734, type: 3}

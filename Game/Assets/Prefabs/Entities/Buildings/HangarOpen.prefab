@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7938646417586646156}
   - component: {fileID: 7938646417586646157}
   - component: {fileID: 7938646417586646158}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: HangarOpen
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7938646418410826662}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,6 +178,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Explosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101191099540408105, guid: 91c02269d128e6048a6198749c0293bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3101191099540408108, guid: 91c02269d128e6048a6198749c0293bc,
         type: 3}
@@ -249,6 +254,16 @@ PrefabInstance:
       propertyPath: startDelay.scalar
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3101191098727801763, guid: 91c02269d128e6048a6198749c0293bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101191099164499783, guid: 91c02269d128e6048a6198749c0293bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3101191098727801766, guid: 91c02269d128e6048a6198749c0293bc,
         type: 3}
       propertyPath: startDelay.scalar
@@ -278,6 +293,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BuildingSmoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 7444114435657144392, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7444114435657144399, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
         type: 3}
@@ -354,6 +374,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BuildingSmoke (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7444114435657144392, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 7444114435657144399, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -428,6 +453,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BuildingSmoke (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7444114435657144392, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7444114435657144399, guid: 8b17a85df33cc174c8a717bbd1a5c2de,
         type: 3}
@@ -504,6 +534,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Explosion (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3101191099540408105, guid: 91c02269d128e6048a6198749c0293bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3101191099540408108, guid: 91c02269d128e6048a6198749c0293bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -574,6 +609,16 @@ PrefabInstance:
       propertyPath: startDelay.scalar
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 3101191098727801763, guid: 91c02269d128e6048a6198749c0293bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101191099164499783, guid: 91c02269d128e6048a6198749c0293bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3101191098727801766, guid: 91c02269d128e6048a6198749c0293bc,
         type: 3}
       propertyPath: startDelay.scalar
@@ -603,6 +648,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BuildingExplosion (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101191099540408105, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3101191099540408108, guid: da5f120db36508c4191c9d9f2dada734,
         type: 3}
@@ -659,6 +709,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3101191098727801763, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5f120db36508c4191c9d9f2dada734, type: 3}
 --- !u!4 &5588317904498111279 stripped
@@ -678,6 +733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BuildingExplosion
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101191099540408105, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3101191099540408108, guid: da5f120db36508c4191c9d9f2dada734,
         type: 3}
@@ -733,6 +793,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101191098727801763, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3101191099540408107, guid: da5f120db36508c4191c9d9f2dada734,
         type: 3}
