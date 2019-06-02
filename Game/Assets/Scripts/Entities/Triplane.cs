@@ -11,7 +11,7 @@ public class Triplane : MonoBehaviour
     float Health = 100.0f;
 
     [SerializeField]
-    ParticleSystem flash, smoke;
+    ParticleSystem flash, smoke, lightSmoke, darkSmoke;
 
     [SerializeField]
     GameObject Explosion;
@@ -68,6 +68,15 @@ public class Triplane : MonoBehaviour
         if (Health <= 0)
         {
             Kill();
+        }
+
+        if (Health <= 66)
+        {
+            lightSmoke.Play();
+        }
+        if (Health <= 33)
+        {
+            darkSmoke.Play();
         }
     }
 

@@ -4799,6 +4799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90f0791ae18fad0479130f2fb922e125, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 5
   rb2D: {fileID: 4917091633931897786}
   trail: {fileID: 81320596345888681}
   hitEffect: {fileID: 5731002080071104070, guid: d8b066a79f954d84ba852eac424d8afd,
@@ -4839,7 +4840,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.1
+  m_Radius: 0.3
 --- !u!1 &4917091634926530776
 GameObject:
   m_ObjectHideFlags: 0
