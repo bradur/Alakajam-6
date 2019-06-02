@@ -428,6 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soundMap: {fileID: 11400000, guid: 244bfc93976ec8741989705f55f52636, type: 2}
+  soundsMuted: {fileID: 11400000, guid: eb9e3bb2ed62d2b469b88875889576c3, type: 2}
   soundSource: {fileID: 6501465203870386038}
   menuMusicSource: {fileID: 6501465205239934616}
   gameMusicSource: {fileID: 6501465204807874065}
