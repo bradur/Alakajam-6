@@ -76,6 +76,7 @@ MonoBehaviour:
   rotateSpeed: 180
   maxVel: 10
   entityPosition: {fileID: 11400000, guid: 3a9362548191a854dabc576993a0d026, type: 2}
+  throttle: 5
   engineSoundPitch: 0.05
   muteSounds: {fileID: 11400000, guid: eb9e3bb2ed62d2b469b88875889576c3, type: 2}
 --- !u!114 &5688645504578611776
@@ -92,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControlsEnabled: {fileID: 11400000, guid: 75aeb1906a058904f997ac7e4af6422a,
     type: 2}
+  playerDied: {fileID: 11400000, guid: c970b03132cd7604d96f97d32f6d95fc, type: 2}
 --- !u!114 &5688645504578611781
 MonoBehaviour:
   m_ObjectHideFlags: 0

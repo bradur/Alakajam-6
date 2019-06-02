@@ -19,6 +19,9 @@ public class GooseAI : MonoBehaviour, Killable
     [SerializeField]
     private RuntimeVector3 playerPosition;
 
+    [SerializeField]
+    private RuntimeBool enemyDied;
+
     private ControllableFlying plane;
     private ProjectileShooter shooter;
     private BombDropper bomber;
@@ -143,6 +146,7 @@ public class GooseAI : MonoBehaviour, Killable
 
     public void Kill()
     {
+        enemyDied.Toggle = true;
         Destroy(gameObject);
     }
 

@@ -103,7 +103,9 @@ MonoBehaviour:
   rotateSpeed: 180
   maxVel: 10
   entityPosition: {fileID: 0}
+  throttle: 5
   engineSoundPitch: 1
+  muteSounds: {fileID: 0}
 --- !u!114 &6083172953631601228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116,7 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4a3bdd0d8e05bc479579b43085d8516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRoot: {fileID: 0}
+  playerControlsEnabled: {fileID: 0}
+  playerDied: {fileID: 0}
 --- !u!114 &6083172953631601229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +133,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPosition: {fileID: 11400000, guid: 3a9362548191a854dabc576993a0d026, type: 2}
+  enemyDied: {fileID: 11400000, guid: d7699457230a93c459e79f032bf227b1, type: 2}
 --- !u!1001 &6083172952674703170
 PrefabInstance:
   m_ObjectHideFlags: 0
