@@ -75,7 +75,6 @@ public class PlayerPlaneControls : MonoBehaviour, Killable
 
     public void Kill()
     {
-        Debug.Log("PLAYER DIE");
         Destroy(gameObject);
     }
 }

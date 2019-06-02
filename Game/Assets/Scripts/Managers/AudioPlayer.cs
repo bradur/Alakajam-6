@@ -30,6 +30,9 @@ public class AudioPlayer : MonoBehaviour {
     [SerializeField]
     private AudioSource gameMusicSource;
 
+    [SerializeField]
+    private AudioSource bossMusicSource;
+
     public void FadeOutGameMusic() {
 
     }
@@ -46,8 +49,37 @@ public class AudioPlayer : MonoBehaviour {
 
     }
 
-    public void StopMenuMusic(){
-        menuMusicSource.Stop();
+    public void PauseMenuMusic(){
+        menuMusicSource.Pause();
+    }
+
+    public void UnPauseMenuMusic() {
+        menuMusicSource.UnPause();
+    }
+
+    public void UnPauseBossMusic() {
+        bossMusicSource.Play();
+    }
+    
+    public void PauseGameMusic() {
+        gameMusicSource.Pause();
+    }
+    public void UnPauseGameMusic() {
+        gameMusicSource.Pause();
+    }
+    
+    public void PauseBossMusic() {
+        bossMusicSource.Stop();
+    }
+
+    public void GameMusicToBossMusic () {
+        PauseGameMusic();
+        UnPauseBossMusic();
+    }
+
+    public void BossMusicToGameMusic () {
+        PauseBossMusic();
+        UnPauseGameMusic();
     }
 
     public void PlaySound(GameEvent gameEvent) {
