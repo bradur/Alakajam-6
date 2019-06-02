@@ -19,10 +19,10 @@ public class Radar : MonoBehaviour
     [SerializeField]
     private RuntimeBool bossVisible;
 
-    private float buffer = 250f;
+    private float buffer = 100f;
 
     private bool bossHasBeenSeen = false;
-    Vector3 center;
+    Vector2 center;
 
     void Start()
     {
@@ -36,15 +36,20 @@ public class Radar : MonoBehaviour
             {
                 img.enabled = true;
 
+                transform.up = (Vector2)Camera.main.WorldToScreenPoint((Vector2)bossPosition.Value) - (Vector2)transform.position;
+                /*
                 center = Camera.main.ViewportToWorldPoint(new Vector2(0.5f, 0.5f));
                 Vector2 pos = Camera.main.WorldToViewportPoint(bossPosition.Value);
+                Debug.Log(pos);
+                Debug.Log(center);
                 pos.x *= buffer;
                 pos.y *= buffer;
 
-                rectTransform.anchoredPosition = pos;
-                Vector3 lookPos = bossPosition.Value - center;
+                rectTransform.anchoredPosition = pos;*/
+                /*
+                Vector2 lookPos = (Vector2) bossPosition.Value - center;
                 float angle = Mathf.Atan2(lookPos.y, lookPos.x) * Mathf.Rad2Deg;
-                rectTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+                rectTransform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);*/
             } else {
                 img.enabled = false;
             }
