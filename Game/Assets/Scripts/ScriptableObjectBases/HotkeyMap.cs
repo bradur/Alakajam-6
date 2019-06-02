@@ -10,7 +10,8 @@ public enum GameAction
 {
     None,
     Shoot,
-    DropBomb
+    DropBomb,
+    SkipCutScene
 }
 
 [CreateAssetMenu(fileName = "HotkeyMap ", menuName = "ScriptableObjects/New HotkeyMap")]

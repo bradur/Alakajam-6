@@ -729,6 +729,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControlsEnabled: {fileID: 11400000, guid: 75aeb1906a058904f997ac7e4af6422a,
     type: 2}
+  hotkeyMap: {fileID: 11400000, guid: 7b9d67556e2c50e40b9a325d32c806f2, type: 2}
 --- !u!1 &5946135366756037726
 GameObject:
   m_ObjectHideFlags: 0
