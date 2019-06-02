@@ -60,6 +60,11 @@ public class Projectile : PooledObject
         {
             Triplane plane = other.GetComponent<Triplane>();
             plane.Hurt(Damage);
+            GooseAI ai = other.GetComponent<GooseAI>();
+            if (ai != null)
+            {
+                ai.Hurt();
+            }
         }
 
         Kill();

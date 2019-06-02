@@ -46,6 +46,9 @@ public class GooseAI : MonoBehaviour, Killable
 
     float bombTimer = 0;
 
+    [SerializeField]
+    private bool useBombs = true, escapeWhenHurt = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -162,6 +165,14 @@ public class GooseAI : MonoBehaviour, Killable
 
     private void updateState()
     {
+        if (hurt && escapeWhenHurt)
+        {
+            hurt = false;
+            state = State.RUN;
+            updateStateTimer = Time.time + 1f;
+            return;
+        }
+
         if (state == State.START)
         {
             Debug.Log(playerDist);
@@ -180,7 +191,7 @@ public class GooseAI : MonoBehaviour, Killable
             return;
         }
 
-        if (state == State.ASCEND && playerDir.y + 5 < 0)
+        if (useBombs && state == State.ASCEND && playerDir.y + 5 < 0)
         {
             state = State.BOMB;
             targetDir = new Vector2(playerDir.x, 0);
@@ -204,7 +215,6 @@ public class GooseAI : MonoBehaviour, Killable
             updateStateTimer = Time.time + 3f;
             return;
         }
-        
 
         updateStateTimer = Time.time + 5f;
         state = State.ENGAGE;
@@ -292,10 +302,17 @@ public class GooseAI : MonoBehaviour, Killable
             targetDir = new Vector3(x, 1.0f);
         }
 
-        RaycastHit2D hitForward = Physics2D.Raycast(transform.position, targetDir, 20, GROUND);
+        RaycastHit2D hitForward = Physics2D.Raycast(transform.position, targetDir, 30, GROUND);
         if (hitForward.collider != null)
         {
             targetDir = targetDir + Vector2.up;
         }
+    }
+
+    bool hurt = false;
+
+    public void Hurt()
+    {
+        hurt = true;
     }
 }
