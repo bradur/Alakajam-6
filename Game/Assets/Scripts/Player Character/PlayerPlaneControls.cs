@@ -14,6 +14,9 @@ public class PlayerPlaneControls : MonoBehaviour, Killable
     [SerializeField]
     private RuntimeBool playerControlsEnabled;
 
+    [SerializeField]
+    private RuntimeBool playerDied;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -79,6 +82,7 @@ public class PlayerPlaneControls : MonoBehaviour, Killable
 
     public void Kill()
     {
+        playerDied.Toggle = true;
         flying.Kill();
         //Destroy(gameObject);
     }

@@ -10,13 +10,22 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+    [SerializeField]
+    private GameObject fadeToBlack;
+
     void Start() {
         AudioPlayer.main.UnPauseMenuMusic();
     }
 
+    int nextMission = 0;
     public void StartMission(int mission) {
+        nextMission = mission;
         AudioPlayer.main.PauseMenuMusic();
-        SceneManager.LoadScene(mission);
+        fadeToBlack.SetActive(true);
+    }
+
+    public void LoadMission() {
+        SceneManager.LoadScene(nextMission);
     }
 
 }
