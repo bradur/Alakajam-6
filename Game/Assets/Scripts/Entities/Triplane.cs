@@ -24,11 +24,16 @@ public class Triplane : MonoBehaviour
     bool rolled = false;
     Animator anim;
 
+    bool alive = true;
+
+    int GROUND;
+
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        GROUND = LayerMask.NameToLayer("Ground");
     }
 
     // Update is called once per frame
@@ -85,18 +90,44 @@ public class Triplane : MonoBehaviour
 
     public void Kill()
     {
-        AudioPlayer.main.PlaySound(GameEvent.BombExplodes);
-        GameObject xpl = Instantiate(Explosion);
-        xpl.SetActive(true);
-        xpl.transform.position = transform.position;
-        ParentPlane.Kill();
-        fire.Play();
-
-        foreach (GameObject obj in disableObjects)
+        if (alive)
         {
-            obj.SetActive(false);
-        }
+            AudioPlayer.main.PlaySound(GameEvent.BombExplodes);
+            GameObject xpl = Instantiate(Explosion);
+            xpl.SetActive(true);
+            xpl.transform.position = transform.position - Vector3.forward;
+            ParentPlane.Kill();
+            lightSmoke.Play();
+            darkSmoke.Play();
+            fire.Play();
 
-        //Destroy(gameObject);
+            foreach (GameObject obj in disableObjects)
+            {
+                obj.SetActive(false);
+            }
+
+            alive = false;
+        }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == GROUND)
+        {
+            for (int i = 0; i < collision.contactCount; i++)
+            {
+                ContactPoint2D point = collision.GetContact(i);
+                float contactAngle = Vector2.Angle(point.normal, transform.right);
+                Debug.Log(contactAngle);
+                if (contactAngle < 75 || contactAngle > 105)
+                {
+                    Kill();
+                }
+            }
+        }
+        else if (collision.gameObject.tag == "Plane")
+        {
+            Kill();
+        }
     }
 }

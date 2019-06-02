@@ -8,6 +8,7 @@ TagManager:
   - Bomb
   - Plane
   - WorldConfines
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -16,14 +16,26 @@ public class BossTransition : MonoBehaviour
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private RuntimeInt objectivesAccomplished;
+
+    private GameObject enemy;
+
+    private bool enemySpawned = false;
+
     void Start() {
         bossVisible.Toggle = false;
+        enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
     void Update() {
         if (bossVisible.Toggle) {
             bossVisible.Toggle = false;
             BeginTransition();
+        }
+        if (!enemySpawned && objectivesAccomplished.Accomplished) {
+            enemySpawned = true;
+            enemy.transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 

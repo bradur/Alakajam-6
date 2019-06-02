@@ -21,10 +21,16 @@ public class BombableBuilding : MonoBehaviour {
     private bool effectInEffect = false;
 
     [SerializeField]
+    private bool mustBeBombed = false;
+
+    [SerializeField]
     private Sprite destroyedSprite;
 
     [SerializeField]
     private List<GameObject> deletableObjects;
+
+    [SerializeField]
+    private RuntimeInt objectivesAccomplished;
 
     private SpriteRenderer spriteRenderer;
 
@@ -32,6 +38,9 @@ public class BombableBuilding : MonoBehaviour {
     private GameObject prefabToSpawnAfterDeath;
 
     void Start () {
+        if  (mustBeBombed) {
+            objectivesAccomplished.Target += 1;
+        }
         boxCollider2D = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
@@ -50,6 +59,9 @@ public class BombableBuilding : MonoBehaviour {
 
     void Kill() {
         boxCollider2D.enabled = false;
+        if  (mustBeBombed) {
+            objectivesAccomplished.Count += 1;
+        }
         effectInEffect = true;
         if (prefabToSpawnAfterDeath != null) {
             Instantiate(prefabToSpawnAfterDeath);
