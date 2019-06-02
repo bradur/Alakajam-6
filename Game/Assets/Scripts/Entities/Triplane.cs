@@ -75,6 +75,7 @@ public class Triplane : MonoBehaviour
     {
         AudioPlayer.main.PlaySound(GameEvent.BombExplodes);
         GameObject xpl = Instantiate(Explosion);
+        xpl.SetActive(true);
         xpl.transform.position = transform.position;
         ParentPlane.Kill();
         Destroy(gameObject);
