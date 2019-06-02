@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &3006310720757370740
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9066672105451126160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea8de10592b8884f80d0cb1d30b0d6d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossVisible: {fileID: 11400000, guid: 41656048e95f60746965ad1083621791, type: 2}
 --- !u!1 &7242907734905943431
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +31,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3006310720757370740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9066672105451126160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cea8de10592b8884f80d0cb1d30b0d6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossVisible: {fileID: 11400000, guid: 41656048e95f60746965ad1083621791, type: 2}
+  visibleDistance: 15
+  playerPosition: {fileID: 11400000, guid: 3a9362548191a854dabc576993a0d026, type: 2}
 --- !u!1001 &3524136697525986726
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61,20 +63,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6083172953631601218, guid: d5b92ead7ab31814f821cc65a2148a3f,
+        type: 3}
+      propertyPath: m_TagString
+      value: Plane
+      objectReference: {fileID: 0}
     - target: {fileID: 6083172953631601225, guid: d5b92ead7ab31814f821cc65a2148a3f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -75.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083172953631601225, guid: d5b92ead7ab31814f821cc65a2148a3f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -139.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083172953631601225, guid: d5b92ead7ab31814f821cc65a2148a3f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.65625
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6083172953631601225, guid: d5b92ead7ab31814f821cc65a2148a3f,
         type: 3}

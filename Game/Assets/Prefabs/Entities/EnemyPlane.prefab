@@ -29,6 +29,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossVisible: {fileID: 11400000, guid: 41656048e95f60746965ad1083621791, type: 2}
+  playerPosition: {fileID: 11400000, guid: 3a9362548191a854dabc576993a0d026, type: 2}
 --- !u!1 &6083172953631601218
 GameObject:
   m_ObjectHideFlags: 0
