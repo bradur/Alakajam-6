@@ -484,11 +484,11 @@ RectTransform:
   m_Father: {fileID: 6384758696829520554}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 50, y: 50}
-  m_Pivot: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &801785454308003359
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1627,7 +1627,7 @@ MonoBehaviour:
   playerDied: {fileID: 11400000, guid: c970b03132cd7604d96f97d32f6d95fc, type: 2}
   enemyDied: {fileID: 11400000, guid: d7699457230a93c459e79f032bf227b1, type: 2}
   levelsFinished: {fileID: 11400000, guid: f388f9dd3f3059f42a25bb1bbf26d6da, type: 2}
-  levelNumber: 0
+  levelNumber: {fileID: 0}
   endText: {fileID: 8109476173409660959}
   failText: You died!
   successText: Well done!
