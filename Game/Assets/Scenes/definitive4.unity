@@ -878,7 +878,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -980,15 +980,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8498935303989753399, guid: 711640230068d0049a49d1309fc045e1,
-        type: 3}
-      propertyPath: m_Lens.NearClipPlane
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8498935303958679849, guid: 711640230068d0049a49d1309fc045e1,
         type: 3}
       propertyPath: near clip plane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498935303989753399, guid: 711640230068d0049a49d1309fc045e1,
+        type: 3}
+      propertyPath: m_Lens.NearClipPlane
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711640230068d0049a49d1309fc045e1, type: 3}
@@ -2446,6 +2446,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 41656048e95f60746965ad1083621791,
         type: 2}
+    - target: {fileID: 6384758696694026722, guid: b642e9cd71dde0d44ac1684fc4e82d57,
+        type: 3}
+      propertyPath: m_Text
+      value: It's the Purple Baron!
+      objectReference: {fileID: 0}
     - target: {fileID: 5147448690298884453, guid: b642e9cd71dde0d44ac1684fc4e82d57,
         type: 3}
       propertyPath: levelNumber
@@ -2626,6 +2631,36 @@ PrefabInstance:
         type: 3}
       propertyPath: Health
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120426164191975070, guid: 21f5d20468f7c834f9a7da71a49d94ac,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120426164191975070, guid: 21f5d20468f7c834f9a7da71a49d94ac,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.6733197
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120426164191975070, guid: 21f5d20468f7c834f9a7da71a49d94ac,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.0039215684
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593881573502107579, guid: 21f5d20468f7c834f9a7da71a49d94ac,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.76617986
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593881573502107579, guid: 21f5d20468f7c834f9a7da71a49d94ac,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 3593881573502107579, guid: 21f5d20468f7c834f9a7da71a49d94ac,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.14324492
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21f5d20468f7c834f9a7da71a49d94ac, type: 3}

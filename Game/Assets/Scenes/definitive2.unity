@@ -347,15 +347,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8498935303989753399, guid: 711640230068d0049a49d1309fc045e1,
-        type: 3}
-      propertyPath: m_Lens.NearClipPlane
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8498935303958679849, guid: 711640230068d0049a49d1309fc045e1,
         type: 3}
       propertyPath: near clip plane
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8498935303989753399, guid: 711640230068d0049a49d1309fc045e1,
+        type: 3}
+      propertyPath: m_Lens.NearClipPlane
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 711640230068d0049a49d1309fc045e1, type: 3}
@@ -1168,6 +1168,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 41656048e95f60746965ad1083621791,
         type: 2}
+    - target: {fileID: 6384758696694026722, guid: b642e9cd71dde0d44ac1684fc4e82d57,
+        type: 3}
+      propertyPath: m_Text
+      value: It's the Red Baron!
+      objectReference: {fileID: 0}
     - target: {fileID: 5147448690298884453, guid: b642e9cd71dde0d44ac1684fc4e82d57,
         type: 3}
       propertyPath: levelNumber
