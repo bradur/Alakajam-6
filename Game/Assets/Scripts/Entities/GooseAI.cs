@@ -84,8 +84,6 @@ public class GooseAI : MonoBehaviour, Killable
                     break;
             }
             avoidanceRoutine();
-
-            Debug.Log(state);
         }
     }
 
