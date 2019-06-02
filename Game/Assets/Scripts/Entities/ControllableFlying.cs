@@ -47,6 +47,8 @@ public class ControllableFlying : MonoBehaviour
 
     bool dead = false;
 
+    private Vector2 worldMin, worldMax;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -57,12 +59,24 @@ public class ControllableFlying : MonoBehaviour
         }
         body = GetComponent<Rigidbody2D>();
         triplane = GetComponentInChildren<Triplane>();
+
+        GameObject world = GameObject.FindWithTag("WorldConfines");
+        BoxCollider collider = world.GetComponent<BoxCollider>();
+        float width = world.transform.localScale.x * collider.size.x;
+        float height = world.transform.localScale.y * collider.size.y;
+        float centerx = world.transform.localScale.x * collider.center.x;
+        float centery = world.transform.localScale.y * collider.center.y;
+        worldMin = new Vector2(world.transform.position.x + centerx - width / 2, world.transform.position.y + centery - height / 2);
+        worldMax = new Vector2(world.transform.position.x + centerx + width / 2, world.transform.position.y + centery + height / 2);
+
+        Debug.Log(worldMin);
+        Debug.Log(worldMax);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (body.velocity.magnitude > 0.01f)
+        if (body.velocity.magnitude > 1.0f)
         {
             float angleDiff = Vector3.SignedAngle(transform.right, body.velocity, Vector3.forward);
             transform.Rotate(Vector3.forward, angleDiff);
@@ -115,6 +129,30 @@ public class ControllableFlying : MonoBehaviour
         }
 
         body.AddForce(Vector2.down * 20);
+
+        var x = transform.position.x;
+        var y = transform.position.y;
+        if (x < worldMin.x - 5)
+        {
+            body.velocity = new Vector2(30f, 0.6f);
+            if (triplane.isUpsideDown())
+            {
+                triplane.Roll();
+            }
+        }
+        if (x > worldMax.x + 5)
+        {
+            body.velocity = new Vector2(-30f, 0.6f);
+            if (!triplane.isUpsideDown())
+            {
+                triplane.Roll();
+            }
+        }
+        
+        if (y > worldMax.y - 2)
+        {
+            throttle = 0;
+        }
     }
 
     private void runAIMovements()
@@ -135,7 +173,7 @@ public class ControllableFlying : MonoBehaviour
 
     public void Accelerate()
     {
-        if (!dead)
+        if (!dead && withinConfines())
         {
             throttle += 10f * Time.fixedDeltaTime;
             throttle = Mathf.Min(throttle, maxThrottle);
@@ -144,7 +182,7 @@ public class ControllableFlying : MonoBehaviour
 
     public void Decelerate()
     {
-        if (!dead)
+        if (!dead && withinConfines())
         {
             throttle -= 10f * Time.fixedDeltaTime;
             throttle = Mathf.Max(throttle, 0);
@@ -153,7 +191,7 @@ public class ControllableFlying : MonoBehaviour
 
     public void RotateCW()
     {
-        if (!dead)
+        if (!dead && withinConfines())
         {
             body.velocity = Quaternion.AngleAxis(-rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
         }
@@ -161,7 +199,7 @@ public class ControllableFlying : MonoBehaviour
 
     public void RotateCW(float angle, AiMovementFinished callback, bool accelerate)
     {
-        if (!dead)
+        if (!dead && withinConfines())
         {
             aiRotate = true;
             aiRotateTarget = angle;
@@ -174,7 +212,7 @@ public class ControllableFlying : MonoBehaviour
     }
     public void RotateCW(Vector3 target, AiMovementFinished callback, bool accelerate)
     {
-        if (!dead)
+        if (!dead && withinConfines())
         {
             aiRotate = true;
             aiRotateTargetV = target;
@@ -188,7 +226,7 @@ public class ControllableFlying : MonoBehaviour
 
     public void RotateCCW()
     {
-        if (!dead)
+        if (!dead && withinConfines())
         {
             body.velocity = Quaternion.AngleAxis(rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
         }
@@ -196,7 +234,7 @@ public class ControllableFlying : MonoBehaviour
 
     public void Roll()
     {
-        if (!dead)
+        if (!dead && withinConfines())
         {
             triplane.Roll();
         }
@@ -220,6 +258,13 @@ public class ControllableFlying : MonoBehaviour
     public void Kill()
     {
         dead = true;
+    }
+
+    private bool withinConfines()
+    {
+        var x = transform.position.x;
+        var y = transform.position.y;
+        return x >= worldMin.x && x <= worldMax.x && y >= worldMin.y && y <= worldMax.y;
     }
 }
 

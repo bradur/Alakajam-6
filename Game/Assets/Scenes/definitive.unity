@@ -208,8 +208,8 @@ Camera:
   near clip plane: 0.1
   far clip plane: 5000
   field of view: 90
-  orthographic: 0
-  orthographic size: 5
+  orthographic: 1
+  orthographic size: 20
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -233,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91120524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -306.53967, y: 0.9831848, z: -20}
+  m_LocalPosition: {x: -282.88675, y: 0.9831848, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -287,7 +287,7 @@ MonoBehaviour:
   m_Follow: {fileID: 312008510}
   m_Lens:
     FieldOfView: 90
-    OrthographicSize: 10
+    OrthographicSize: 20
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -346,7 +346,7 @@ GameObject:
   - component: {fileID: 281885239}
   m_Layer: 5
   m_Name: WorldConfines
-  m_TagString: Untagged
+  m_TagString: WorldConfines
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -362,8 +362,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9072922, y: 0.97101074, z: 1}
-  m_Center: {x: 0.017838733, y: 0.014494629, z: 0}
+  m_Size: {x: 0.9072922, y: 0.4411157, z: 1}
+  m_Center: {x: 0, y: -0.10190903, z: 0}
 --- !u!4 &281885240
 Transform:
   m_ObjectHideFlags: 0
