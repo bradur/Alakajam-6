@@ -306,40 +306,8 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4388350192674500080, guid: 773812592f3c92a4486c2d5f543eec48,
-        type: 3}
-      propertyPath: levelButtons.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388350192674500080, guid: 773812592f3c92a4486c2d5f543eec48,
-        type: 3}
-      propertyPath: levelButtons.Array.data[3]
-      value: 
-      objectReference: {fileID: 597413641}
-    - target: {fileID: 9143632005268504014, guid: 773812592f3c92a4486c2d5f543eec48,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: 9143632005268504014, guid: 773812592f3c92a4486c2d5f543eec48,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 58.799988
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
---- !u!114 &597413641 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1002003055, guid: 773812592f3c92a4486c2d5f543eec48,
-    type: 3}
-  m_PrefabInstance: {fileID: 597413640}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27b3576910d066e4083d6ed685ad0072, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1991337664
 GameObject:
   m_ObjectHideFlags: 0
