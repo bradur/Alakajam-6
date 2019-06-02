@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPlaneControls : MonoBehaviour
+public class PlayerPlaneControls : MonoBehaviour, Killable
 {
     [SerializeField]
     GameObject playerRoot;
@@ -16,6 +16,7 @@ public class PlayerPlaneControls : MonoBehaviour
     void Start()
     {
         flying = GetComponent<ControllableFlying>();
+        GetComponentInChildren<Triplane>().ParentPlane = this;
     }
 
     // Update is called once per frame
@@ -70,5 +71,11 @@ public class PlayerPlaneControls : MonoBehaviour
             flying.Decelerate();
             decelerate = false;
         }
+    }
+
+    public void Kill()
+    {
+        Debug.Log("PLAYER DIE");
+        Destroy(gameObject);
     }
 }

@@ -7,6 +7,8 @@ using System.Collections;
 
 public class Projectile : PooledObject
 {
+    [SerializeField]
+    private float Damage = 5.0f;
 
     [SerializeField]
     private Rigidbody2D rb2D;
@@ -53,6 +55,11 @@ public class Projectile : PooledObject
         {
             Bomb bomb = other.GetComponent<Bomb>();
             bomb.Explode();
+        }
+        else if (other.tag == "Plane")
+        {
+            Triplane plane = other.GetComponent<Triplane>();
+            plane.Hurt(Damage);
         }
 
         Kill();
