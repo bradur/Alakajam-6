@@ -306,6 +306,40 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 630374651, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 19.924988
+      objectReference: {fileID: 0}
+    - target: {fileID: 630374651, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -276.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 630374651, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -336.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 786074303, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -264.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 786074303, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -31.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 630374652, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: d0e0ae990adf27b4a93dff25a2976ff3,
+        type: 3}
+    - target: {fileID: 630374652, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
+      propertyPath: m_Text
+      value: "<i>Flying</i>\n  - Don't fly away from unfinished missions\n  - Engine
+        shuts off if you fly too high\n  - Do not try to land during missions\n\n<i>Shooting</i>\n
+        \ - CTRL is used to activate the machine guns\n  - Machine guns shouldn't
+        be used on buildings\n  - SHIFT releases a bomb\n  - Bombs are used to destroy
+        buildings\n  - They destroy airplanes on first hit\n  - Be careful not to
+        blow yourself up\n\nGood luck!"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
 --- !u!1 &1991337664
