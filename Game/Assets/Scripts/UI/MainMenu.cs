@@ -44,16 +44,13 @@ public class MainMenu : MonoBehaviour
         {
             //GAME FINISHED!
             levelButtons.ForEach(x => x.gameObject.SetActive(true));
-            levelButtons.ForEach(x => x.EnableButton(false));
             levelButtons.ForEach(x => x.SetSuccess(true));
         }
         else
         {
             levelButtons.ForEach(x => x.gameObject.SetActive(false));
-            levelButtons.ForEach(x => x.EnableButton(false));
             for (var i = 0; i < LevelsFinished.Count; i++)
             {
-                levelButtons[i].EnableButton(false);
                 levelButtons[i].SetSuccess(true);
                 levelButtons[i].gameObject.SetActive(true);
             }
