@@ -130,6 +130,11 @@ public class ControllableFlying : MonoBehaviour
                 engineSoundSource.pitch = speed * engineSoundPitch;
             }
             runAIMovements();
+        } else {
+            if (engineSoundSource != null && engineSoundSource.isPlaying)
+            {
+                engineSoundSource.Stop();
+            }
         }
 
         body.AddForce(Vector2.down * 20);
