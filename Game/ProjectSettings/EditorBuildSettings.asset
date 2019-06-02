@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/definitive.unity
     guid: 63d6420c378f0504e8327242c8849264
+  - enabled: 1
+    path: Assets/Scenes/definitive2.unity
+    guid: 4831df85c4c032d48878734f27c219eb
   m_configObjects: {}

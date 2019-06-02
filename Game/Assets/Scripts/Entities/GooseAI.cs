@@ -223,7 +223,7 @@ public class GooseAI : MonoBehaviour, Killable
     private void commonRoutine()
     {
         var angleDiff = Vector3.Angle(transform.right, playerDir);
-        Debug.Log(transform.right + ", " + playerDir + ", " + angleDiff + ", " + playerDist);
+//        Debug.Log(transform.right + ", " + playerDir + ", " + angleDiff + ", " + playerDist);
         if (state != State.START && angleDiff < 5.0f && playerDist < 40f)
         {
             shoot = true;

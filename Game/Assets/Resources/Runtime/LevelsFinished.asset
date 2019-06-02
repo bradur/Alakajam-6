@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: LevelsFinished
   m_EditorClassIdentifier: 
   configName: 
-  Count: 3
+  Count: 2
   Target: 0
