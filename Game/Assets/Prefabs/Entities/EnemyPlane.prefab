@@ -103,6 +103,8 @@ MonoBehaviour:
   rotateSpeed: 180
   maxVel: 10
   entityPosition: {fileID: 0}
+  Explosion: {fileID: 3101191099540408105, guid: 91c02269d128e6048a6198749c0293bc,
+    type: 3}
   throttle: 5
   engineSoundPitch: 1
   muteSounds: {fileID: 0}
