@@ -265,7 +265,8 @@ public class GooseAI : MonoBehaviour, Killable
 
     private void startRoutine()
     {
-        targetDir = playerDir;
+        var offset = Vector2.Perpendicular(playerDir).normalized * 10;
+        targetDir = playerDir + new Vector3(offset.x, offset.y, 0);
         targetThrottle = maxThrottle;
     }
 
