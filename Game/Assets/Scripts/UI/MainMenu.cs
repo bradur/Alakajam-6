@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour {
     public void StartMission(int mission) {
         canvas.SetActive(false);
         world.SetActive(true);
-        AudioPlayer.main.StopMenuMusic();
+        AudioPlayer.main.PauseMenuMusic();
         Debug.Log("Start");
     }
 

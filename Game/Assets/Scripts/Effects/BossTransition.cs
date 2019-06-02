@@ -31,6 +31,7 @@ public class BossTransition : MonoBehaviour
 
     public void StopTime() {
         muteSounds.Toggle = true;
+        AudioPlayer.main.GameMusicToBossMusic();
         Time.timeScale = 0f;
     }
 

@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BombableBuilding : MonoBehaviour {
 
@@ -22,6 +23,9 @@ public class BombableBuilding : MonoBehaviour {
     [SerializeField]
     private Sprite destroyedSprite;
 
+    [SerializeField]
+    private List<GameObject> deletableObjects;
+
     private SpriteRenderer spriteRenderer;
 
     [SerializeField]
@@ -37,6 +41,9 @@ public class BombableBuilding : MonoBehaviour {
             effectTimer += Time.deltaTime;
             if (effectTimer > effectDuration) {
                 spriteRenderer.sprite = destroyedSprite;
+                foreach(GameObject obj in deletableObjects) {
+                    Destroy(obj);
+                }
             }
         }
     }
