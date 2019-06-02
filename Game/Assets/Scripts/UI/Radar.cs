@@ -19,7 +19,7 @@ public class Radar : MonoBehaviour
     [SerializeField]
     private RuntimeBool bossVisible;
 
-    private float buffer = 80f;
+    private float buffer = 250f;
 
     private bool bossHasBeenSeen = false;
     Vector3 center;
