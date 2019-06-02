@@ -17,6 +17,8 @@ public class ControllableFlying : MonoBehaviour
     float maxVel;
     [SerializeField]
     private RuntimeVector3 entityPosition;
+    [SerializeField]
+    GameObject Explosion;
 
     public float throttle = 5f;
     float maxThrottle = 15f;
@@ -49,6 +51,9 @@ public class ControllableFlying : MonoBehaviour
 
     private Vector2 worldMin, worldMax;
 
+    private bool disableRotation = false;
+    int GROUND;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,12 +73,14 @@ public class ControllableFlying : MonoBehaviour
         float centery = world.transform.localScale.y * collider.center.y;
         worldMin = new Vector2(world.transform.position.x + centerx - width / 2, world.transform.position.y + centery - height / 2);
         worldMax = new Vector2(world.transform.position.x + centerx + width / 2, world.transform.position.y + centery + height / 2);
+
+        GROUND = LayerMask.NameToLayer("Ground");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (body.velocity.magnitude > 1.0f)
+        if (body.velocity.magnitude > 1.0f && !disableRotation)
         {
             float angleDiff = Vector3.SignedAngle(transform.right, body.velocity, Vector3.forward);
             transform.Rotate(Vector3.forward, angleDiff);
@@ -262,6 +269,22 @@ public class ControllableFlying : MonoBehaviour
         var x = transform.position.x;
         var y = transform.position.y;
         return x >= worldMin.x && x <= worldMax.x && y >= worldMin.y && y <= worldMax.y;
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer == GROUND)
+        {
+            if (dead && !disableRotation)
+            {
+                disableRotation = true;
+                body.velocity = Vector2.zero;
+                AudioPlayer.main.PlaySound(GameEvent.BombExplodes);
+                GameObject xpl = Instantiate(Explosion);
+                xpl.SetActive(true);
+                xpl.transform.position = transform.position - Vector3.forward;
+            }
+        }
     }
 }
 

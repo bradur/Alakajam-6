@@ -95,7 +95,7 @@ public class Triplane : MonoBehaviour
             AudioPlayer.main.PlaySound(GameEvent.BombExplodes);
             GameObject xpl = Instantiate(Explosion);
             xpl.SetActive(true);
-            xpl.transform.position = transform.position;
+            xpl.transform.position = transform.position - Vector3.forward;
             ParentPlane.Kill();
             lightSmoke.Play();
             darkSmoke.Play();
