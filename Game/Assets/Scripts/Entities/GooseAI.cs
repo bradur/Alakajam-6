@@ -196,7 +196,7 @@ public class GooseAI : MonoBehaviour, Killable
             state = State.BOMB;
             targetDir = new Vector2(playerDir.x, 0);
             updateStateTimer = Time.time + 4f;
-            bombTimer = Time.time + 0.5f;
+            bombTimer = Time.time + 0.8f;
             return;
         }
 
@@ -284,7 +284,7 @@ public class GooseAI : MonoBehaviour, Killable
 
     private void bombRoutine()
     {
-        targetDir = new Vector2(targetDir.x, 0);
+        targetDir = new Vector2(targetDir.x, 0).normalized * 3 + Vector2.up;
         targetThrottle = 8.0f;
     }
 
