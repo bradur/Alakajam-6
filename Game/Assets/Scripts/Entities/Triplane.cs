@@ -125,7 +125,7 @@ public class Triplane : MonoBehaviour
                 }
             }
         }
-        else if (collision.gameObject.tag == "Plane")
+        else if (collision.gameObject.tag == "Plane" || collision.gameObject.tag == "Player")
         {
             Kill();
         }
