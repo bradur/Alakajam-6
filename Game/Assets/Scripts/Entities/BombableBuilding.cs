@@ -24,6 +24,8 @@ public class BombableBuilding : MonoBehaviour {
 
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField]
+    private GameObject prefabToSpawnAfterDeath;
 
     void Start () {
         boxCollider2D = GetComponent<BoxCollider2D>();
@@ -42,6 +44,9 @@ public class BombableBuilding : MonoBehaviour {
     void Kill() {
         boxCollider2D.enabled = false;
         effectInEffect = true;
+        if (prefabToSpawnAfterDeath != null) {
+            Instantiate(prefabToSpawnAfterDeath);
+        }
         AudioPlayer.main.PlaySound(GameEvent.BuildingExplode);
         explosionEffect.SetActive(true);
     }

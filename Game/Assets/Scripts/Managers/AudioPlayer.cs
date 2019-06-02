@@ -45,6 +45,8 @@ public class AudioPlayer : MonoBehaviour {
 
     public void PlaySound(GameEvent gameEvent) {
         AudioClip clip = soundMap.GetAudioClip(gameEvent);
-        soundSource.PlayOneShot(clip, 1f);
+        if (clip != null) {
+            soundSource.PlayOneShot(clip, 1f);
+        }
     }
 }
