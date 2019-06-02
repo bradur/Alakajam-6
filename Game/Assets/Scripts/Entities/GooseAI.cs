@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GooseAI : MonoBehaviour
+public class GooseAI : MonoBehaviour, Killable
 {
     [SerializeField]
     private RuntimeVector3 playerPosition;
@@ -17,6 +17,7 @@ public class GooseAI : MonoBehaviour
     {
         plane = GetComponent<ControllableFlying>();
         shooter = GetComponentInChildren<ProjectileShooter>();
+        GetComponentInChildren<Triplane>().ParentPlane = this;
     }
 
     // Update is called once per frame
@@ -58,5 +59,10 @@ public class GooseAI : MonoBehaviour
         }
 
         plane.Accelerate();
+    }
+
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 }

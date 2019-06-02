@@ -6,9 +6,17 @@ public class Triplane : MonoBehaviour
 {
     [SerializeField]
     bool Trigger = false;
+    
+    [SerializeField]
+    float Health = 100.0f;
 
     [SerializeField]
     ParticleSystem flash, smoke;
+
+    [SerializeField]
+    GameObject Explosion;
+    
+    public Killable ParentPlane;
 
     bool rolled = false;
     Animator anim;
@@ -52,5 +60,23 @@ public class Triplane : MonoBehaviour
     {
         flash.Play();
         smoke.Play();
+    }
+
+    public void Hurt(float damage)
+    {
+        Health -= damage;
+        if (Health <= 0)
+        {
+            Kill();
+        }
+    }
+
+    public void Kill()
+    {
+        AudioPlayer.main.PlaySound(GameEvent.BombExplodes);
+        GameObject xpl = Instantiate(Explosion);
+        xpl.transform.position = transform.position;
+        ParentPlane.Kill();
+        Destroy(gameObject);
     }
 }

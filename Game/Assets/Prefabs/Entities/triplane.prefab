@@ -28839,7 +28839,7 @@ GameObject:
   - component: {fileID: 743312467250015905}
   m_Layer: 0
   m_Name: triplane
-  m_TagString: Untagged
+  m_TagString: Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28883,8 +28883,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Trigger: 0
+  Health: 100
   flash: {fileID: 6848264738772258958}
   smoke: {fileID: 747708267467001230}
+  Explosion: {fileID: 3101191099540408105, guid: 91c02269d128e6048a6198749c0293bc,
+    type: 3}
 --- !u!95 &8218611918272875773
 Animator:
   serializedVersion: 3
