@@ -35,7 +35,10 @@ public class ProjectileShooter : MonoBehaviour
             newProjectile.gameObject.layer = gameObject.layer;
             newProjectile.transform.position = bulletOrigin.transform.position;
             newProjectile.Shoot(config.LifeTime, direction + offset, config.Speed);
-            triplane.TriggerMuzzleFlash();
+            if (triplane != null)
+            {
+                triplane.TriggerMuzzleFlash();
+            }
             return newProjectile;
         }
         return null;
