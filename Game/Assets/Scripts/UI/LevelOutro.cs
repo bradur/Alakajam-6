@@ -48,7 +48,7 @@ public class LevelOutro : MonoBehaviour
             endText.text = playerDied.Toggle ? failText : successText;
             animator.enabled = true;
 
-            if (enemyDied.Toggle)
+            if (enemyDied.Toggle && !playerDied.Toggle)
             {
                 if (levelsFinished.Count < levelNumber.Value)
                 {
