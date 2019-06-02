@@ -15,11 +15,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject fadeToBlack;
     [SerializeField]
-    private Text WeirdControlsCheckbox;
+    private Image WeirdControlsCheckbox;
     [SerializeField]
-    private Text NormalControlsCheckbox;
+    private Image NormalControlsCheckbox;
     [SerializeField]
-    private Text InvertedControlsCheckbox;
+    private Image InvertedControlsCheckbox;
     [SerializeField]
     private RuntimeBool IsInvertedControls;
     [SerializeField]
@@ -36,9 +36,9 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
-        WeirdControlsCheckbox.text = IsNormalControls.Toggle ? "\u2610" : "\u2611";
-        NormalControlsCheckbox.text = IsNormalControls.Toggle ? "\u2611" : "\u2610";
-        InvertedControlsCheckbox.text = IsInvertedControls.Toggle ? "\u2611" : "\u2610";
+        WeirdControlsCheckbox.enabled = !IsNormalControls.Toggle;
+        NormalControlsCheckbox.enabled = IsNormalControls.Toggle;
+        InvertedControlsCheckbox.enabled = IsInvertedControls.Toggle;
 
         if (LevelsFinished.Count >= levelButtons.Count)
         {
