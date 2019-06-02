@@ -39,13 +39,21 @@ public class ControllableFlying : MonoBehaviour
     [SerializeField]
     private float engineSoundPitch = 0.25f;
     private AudioSource engineSoundSource;
+    private float originalEngineSoundvolume;
+
+
+    [SerializeField]
+    private RuntimeBool muteSounds;
 
     // Start is called before the first frame update
     void Start()
     {
+        engineSoundSource = GetComponent<AudioSource>();
+        if (engineSoundSource != null) {
+            originalEngineSoundvolume = engineSoundSource.volume;
+        }
         body = GetComponent<Rigidbody2D>();
         triplane = GetComponentInChildren<Triplane>();
-        engineSoundSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,6 +67,14 @@ public class ControllableFlying : MonoBehaviour
         Debug.DrawLine(transform.position, transform.position + Vector3.down, Color.red);
         Debug.DrawLine(transform.position, transform.position + new Vector3(body.velocity.x, body.velocity.y, 0));
         Debug.DrawLine(transform.position, transform.position + aiRotateTargetV, Color.blue);
+        if (engineSoundSource != null)
+        {
+            if (muteSounds.Toggle) {
+                engineSoundSource.volume = 0f;
+            } else if (engineSoundSource.volume == 0) {
+                engineSoundSource.volume = originalEngineSoundvolume;
+            }
+        }
     }
 
     private void FixedUpdate()
@@ -86,7 +102,6 @@ public class ControllableFlying : MonoBehaviour
         {
             entityPosition.Value = transform.position;
         }
-
         if (engineSoundSource != null)
         {
             engineSoundSource.pitch = speed * engineSoundPitch;

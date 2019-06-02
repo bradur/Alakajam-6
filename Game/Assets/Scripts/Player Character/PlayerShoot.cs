@@ -31,7 +31,10 @@ public class PlayerShoot : MonoBehaviour
     {
         if (hotkeyMap.GetKey(GameAction.Shoot))
         {
-            shooter.Shoot((Vector2)transform.right);
+            Projectile projectile = shooter.Shoot((Vector2)transform.right);
+            if (projectile != null) {
+                AudioPlayer.main.PlaySound(GameEvent.PlayerGunFires);
+            }
             /*
             if (lastShot + 1.0/fireRate < Time.time)
             {

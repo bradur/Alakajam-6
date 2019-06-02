@@ -10,11 +10,18 @@ public class AudioPlayer : MonoBehaviour {
     public static AudioPlayer main;
 
     void Awake() {
+        originalSoundVolume = soundSource.volume;
+        soundsMuted.Toggle = false;
         main = this;
     }
 
+    private float originalSoundVolume;
+
     [SerializeField]
     private SoundMap soundMap;
+
+    [SerializeField]
+    private RuntimeBool soundsMuted;
 
     [SerializeField]
     private AudioSource soundSource;
@@ -47,6 +54,14 @@ public class AudioPlayer : MonoBehaviour {
         AudioClip clip = soundMap.GetAudioClip(gameEvent);
         if (clip != null) {
             soundSource.PlayOneShot(clip, 1f);
+        }
+    }
+
+    void Update() {
+        if (soundsMuted.Toggle) {
+            soundSource.volume = 0f;
+        } else if (soundSource.volume == 0f) {
+            soundSource.volume = originalSoundVolume;
         }
     }
 }

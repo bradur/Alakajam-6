@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossVisible: {fileID: 11400000, guid: 41656048e95f60746965ad1083621791, type: 2}
+  muteSounds: {fileID: 11400000, guid: eb9e3bb2ed62d2b469b88875889576c3, type: 2}
   animator: {fileID: 316737547}
 --- !u!1 &420358194 stripped
 GameObject:
@@ -1050,6 +1051,12 @@ PrefabInstance:
       propertyPath: m_PlayOnAwake
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6501465205286953632, guid: 6eed5432dc2c8b341874ebe603e80d7f,
+        type: 3}
+      propertyPath: soundsMuted
+      value: 
+      objectReference: {fileID: 11400000, guid: eb9e3bb2ed62d2b469b88875889576c3,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6eed5432dc2c8b341874ebe603e80d7f, type: 3}
 --- !u!1 &1199155998
@@ -1361,6 +1368,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4388350191811022045, guid: 773812592f3c92a4486c2d5f543eec48,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388350191811022047, guid: 773812592f3c92a4486c2d5f543eec48,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4388350191811022047, guid: 773812592f3c92a4486c2d5f543eec48,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4388350191591804494, guid: 773812592f3c92a4486c2d5f543eec48,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1481,11 +1503,6 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 420358194}
-    - target: {fileID: 4388350191811022045, guid: 773812592f3c92a4486c2d5f543eec48,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3828607291824513236, guid: 773812592f3c92a4486c2d5f543eec48,
         type: 3}
       propertyPath: m_IsActive
@@ -1651,16 +1668,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4388350191811022047, guid: 773812592f3c92a4486c2d5f543eec48,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4388350191811022047, guid: 773812592f3c92a4486c2d5f543eec48,
-        type: 3}
-      propertyPath: m_UpdateMode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 4388350191409649558, guid: 773812592f3c92a4486c2d5f543eec48,
         type: 3}
       propertyPath: m_Color.a
@@ -1722,6 +1729,7 @@ MonoBehaviour:
   maxVel: 10
   entityPosition: {fileID: 11400000, guid: 3a9362548191a854dabc576993a0d026, type: 2}
   engineSoundPitch: 0.05
+  muteSounds: {fileID: 11400000, guid: eb9e3bb2ed62d2b469b88875889576c3, type: 2}
 --- !u!50 &1384832364
 Rigidbody2D:
   serializedVersion: 4
@@ -1798,7 +1806,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 32afc12ce3f3c764bb10e6ef048c8331, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.412
+  m_Volume: 0.128
   m_Pitch: 1
   Loop: 1
   Mute: 0

@@ -10,6 +10,8 @@ public class BossTransition : MonoBehaviour
 
     [SerializeField]
     private RuntimeBool bossVisible;
+    [SerializeField]
+    private RuntimeBool muteSounds;
 
     [SerializeField]
     private Animator animator;
@@ -28,11 +30,13 @@ public class BossTransition : MonoBehaviour
     }
 
     public void StopTime() {
+        muteSounds.Toggle = true;
         Time.timeScale = 0f;
     }
 
     public void EndTransition()
     {
+        muteSounds.Toggle = false;
         Time.timeScale = 1f;
         gameObject.SetActive(false);
     }
