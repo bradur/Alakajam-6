@@ -143,6 +143,9 @@ TextureImporter:
   - first:
       213: 7728155859371869844
     second: buildings_19
+  - first:
+      213: 7277529560641664919
+    second: aagun2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -651,6 +654,27 @@ TextureImporter:
       bones: []
       spriteID: 53655095a949ce440a0848f4a13dfc94
       internalID: 7728155859371869844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: aagun2
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 3631
+        width: 286
+        height: 271
+      alignment: 9
+      pivot: {x: 0.7313126, y: 0.37306038}
+      border: {x: 0, y: 23, z: 20, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9848ebbca47c4de428365c284801b665
+      internalID: 7277529560641664919
       vertices: []
       indices: 
       edges: []

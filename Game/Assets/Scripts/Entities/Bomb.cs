@@ -37,7 +37,7 @@ public class Bomb : PooledObject
         rb2D.velocity = direction * speed;
 
         collider.enabled = false;
-        enableAt = Time.time + 0.3f;
+        enableAt = Time.time + 0.2f;
     }
 
     void OnCollisionEnter2D(Collision2D collision2D)
