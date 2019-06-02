@@ -34,7 +34,10 @@ public class GooseAI : MonoBehaviour, Killable
         var angleDiff = Vector3.SignedAngle(transform.right, targetDir, Vector3.forward);
         if (angleDiff < 5.0f && angleDiff > -5.0f)
         {
-            shooter.Shoot(transform.right);
+            Projectile projectile = shooter.Shoot(transform.right);
+            if (projectile != null) {
+                AudioPlayer.main.PlaySound(GameEvent.EnemyGunFires);
+            }
         }
         else
         {
