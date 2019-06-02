@@ -8,6 +8,8 @@ using System.Collections;
 public class BossEnemy : MonoBehaviour {
 
     [SerializeField]
+    private RuntimeBool bossCloseToPlayer;
+    [SerializeField]
     private RuntimeBool bossVisible;
 
     private bool hasBeenSeen = false;
@@ -18,19 +20,28 @@ public class BossEnemy : MonoBehaviour {
     [SerializeField]
     private RuntimeVector3 playerPosition;
 
+    [SerializeField]
+    private RuntimeVector3 bossPosition;
+
     void BecameVisible()
     {
-        Debug.Log("Boss visible!");
         if (!hasBeenSeen) {
-            bossVisible.Toggle = true;
+            bossCloseToPlayer.Toggle = true;
             hasBeenSeen = true;
         }
     }
 
+    void OnBecameVisible() {
+        bossVisible.Toggle = true;
+    }
+    void OnBecameInvisible() {
+        bossVisible.Toggle = false;
+    }
+
     void Update () {
+        bossPosition.Value = transform.position;
         if (!hasBeenSeen) {
             float distance = Vector2.Distance(playerPosition.Value, transform.position);
-            Debug.Log(distance);
             if (distance <= visibleDistance) {
                 BecameVisible();
             }

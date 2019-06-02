@@ -9,7 +9,8 @@ public class BossTransition : MonoBehaviour
 {
 
     [SerializeField]
-    private RuntimeBool bossVisible;
+    private RuntimeBool bossCloseToPlayer;
+
     [SerializeField]
     private RuntimeBool muteSounds;
 
@@ -23,20 +24,39 @@ public class BossTransition : MonoBehaviour
 
     private bool enemySpawned = false;
 
-    void Start() {
-        bossVisible.Toggle = false;
+    private bool done = false;
+
+    [SerializeField]
+    private GameObject radar;
+
+    void Start()
+    {
+        bossCloseToPlayer.Toggle = false;
         enemy = GameObject.FindGameObjectWithTag("Enemy");
     }
 
-    void Update() {
-        if (bossVisible.Toggle) {
-            bossVisible.Toggle = false;
-            BeginTransition();
+    void Update()
+    {
+        if (!done)
+        {
+            if (bossCloseToPlayer.Toggle)
+            {
+                bossCloseToPlayer.Toggle = false;
+                BeginTransition();
+            }
+            if (!enemySpawned && objectivesAccomplished.Accomplished)
+            {
+                SpawnEnemy();
+            }
         }
-        if (!enemySpawned && objectivesAccomplished.Accomplished) {
-            enemySpawned = true;
-            enemy.transform.GetChild(0).gameObject.SetActive(true);
-        }
+
+    }
+
+    void SpawnEnemy()
+    {
+        radar.SetActive(true);
+        enemySpawned = true;
+        enemy.transform.GetChild(0).gameObject.SetActive(true);
     }
 
     void BeginTransition()
@@ -45,7 +65,8 @@ public class BossTransition : MonoBehaviour
         animator.enabled = true;
     }
 
-    public void StopTime() {
+    public void StopTime()
+    {
         muteSounds.Toggle = true;
         AudioPlayer.main.GameMusicToBossMusic();
         Time.timeScale = 0f;
@@ -53,9 +74,10 @@ public class BossTransition : MonoBehaviour
 
     public void EndTransition()
     {
+        done = true;
         muteSounds.Toggle = false;
         Time.timeScale = 1f;
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
 
