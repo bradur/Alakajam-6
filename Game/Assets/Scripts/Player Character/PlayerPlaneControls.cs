@@ -83,6 +83,7 @@ public class PlayerPlaneControls : MonoBehaviour, Killable
     public void Kill()
     {
         playerDied.Toggle = true;
-        Destroy(gameObject);
+        flying.Kill();
+        //Destroy(gameObject);
     }
 }
