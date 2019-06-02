@@ -210,10 +210,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explosionEffect: {fileID: 1062007525319530083}
   effectDuration: 0.4
+  mustBeBombed: 1
   destroyedSprite: {fileID: -7025564087743128460, guid: 1c355ea08c45e3a419c80f089b1b9dd5,
     type: 3}
   deletableObjects:
   - {fileID: 1062007524714262506}
+  objectivesAccomplished: {fileID: 11400000, guid: 8412a81005693654a9e5460fa5633358,
+    type: 2}
   prefabToSpawnAfterDeath: {fileID: 0}
 --- !u!61 &1062007525570247077
 BoxCollider2D:
