@@ -311,6 +311,19 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 4388350190971192811, guid: 773812592f3c92a4486c2d5f543eec48,
+        type: 3}
+      propertyPath: m_Text
+      value: 'The enemy is dependent on the bridge at the ravine.
+
+        Destroy it to cripple the enemy forces. There has been sightings of the Red
+        Baron. Watch out!
+
+
+        - Destroy the bridge
+
+        - Get home safely'
+      objectReference: {fileID: 0}
     - target: {fileID: 1641144215, guid: 773812592f3c92a4486c2d5f543eec48, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 3
