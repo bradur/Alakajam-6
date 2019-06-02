@@ -296,7 +296,7 @@ public class GooseAI : MonoBehaviour, Killable
 
     private void avoidanceRoutine()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 10, GROUND);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 20, GROUND);
         if (hit.collider != null)
         {
             float x = transform.right.x < 0 ? -1 : 1;
