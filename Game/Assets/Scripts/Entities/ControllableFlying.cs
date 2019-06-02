@@ -68,9 +68,6 @@ public class ControllableFlying : MonoBehaviour
         float centery = world.transform.localScale.y * collider.center.y;
         worldMin = new Vector2(world.transform.position.x + centerx - width / 2, world.transform.position.y + centery - height / 2);
         worldMax = new Vector2(world.transform.position.x + centerx + width / 2, world.transform.position.y + centery + height / 2);
-
-        Debug.Log(worldMin);
-        Debug.Log(worldMax);
     }
 
     // Update is called once per frame
