@@ -45,6 +45,8 @@ public class ControllableFlying : MonoBehaviour
     [SerializeField]
     private RuntimeBool muteSounds;
 
+    bool dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,23 +92,27 @@ public class ControllableFlying : MonoBehaviour
             body.velocity = body.velocity.normalized * 80;
         }
 
-        var speed = body.velocity.magnitude;
+        if (!dead)
+        {
+            var speed = body.velocity.magnitude;
 
-        body.AddForce(transform.right.normalized * throttle);
+            body.AddForce(transform.right.normalized * throttle);
+            var upsideDownFactor = triplane.isUpsideDown() ? -1.0f : 1.0f;
+            float lift = Mathf.Max(0, Mathf.Min(20, transform.up.normalized.y * speed * upsideDownFactor));
+            body.AddForce(Vector2.up * lift);
+
+            if (entityPosition != null)
+            {
+                entityPosition.Value = transform.position;
+            }
+            if (engineSoundSource != null)
+            {
+                engineSoundSource.pitch = speed * engineSoundPitch;
+            }
+            runAIMovements();
+        }
+
         body.AddForce(Vector2.down * 20);
-        var upsideDownFactor = triplane.isUpsideDown() ? -1.0f : 1.0f;
-        float lift = Mathf.Max(0, Mathf.Min(20, transform.up.normalized.y * speed * upsideDownFactor));
-        body.AddForce(Vector2.up * lift);
-
-        if (entityPosition != null)
-        {
-            entityPosition.Value = transform.position;
-        }
-        if (engineSoundSource != null)
-        {
-            engineSoundSource.pitch = speed * engineSoundPitch;
-        }
-        runAIMovements();
 
         //Debug.Log(lift + ", " + speed + ", " + throttle + ", " + transform.up.normalized.y + ", " + speed);
     }
@@ -129,50 +135,71 @@ public class ControllableFlying : MonoBehaviour
 
     public void Accelerate()
     {
-        throttle += 10f * Time.fixedDeltaTime;
-        throttle = Mathf.Min(throttle, maxThrottle);
+        if (!dead)
+        {
+            throttle += 10f * Time.fixedDeltaTime;
+            throttle = Mathf.Min(throttle, maxThrottle);
+        }
     }
 
     public void Decelerate()
     {
-        throttle -= 10f * Time.fixedDeltaTime;
-        throttle = Mathf.Max(throttle, 0);
+        if (!dead)
+        {
+            throttle -= 10f * Time.fixedDeltaTime;
+            throttle = Mathf.Max(throttle, 0);
+        }
     }
 
     public void RotateCW()
     {
-        body.velocity = Quaternion.AngleAxis(-rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
+        if (!dead)
+        {
+            body.velocity = Quaternion.AngleAxis(-rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
+        }
     }
 
     public void RotateCW(float angle, AiMovementFinished callback, bool accelerate)
     {
-        aiRotate = true;
-        aiRotateTarget = angle;
-        aiAccelerate = accelerate;
-        if (callback != null)
+        if (!dead)
         {
-            aiCallback = callback;
+            aiRotate = true;
+            aiRotateTarget = angle;
+            aiAccelerate = accelerate;
+            if (callback != null)
+            {
+                aiCallback = callback;
+            }
         }
     }
     public void RotateCW(Vector3 target, AiMovementFinished callback, bool accelerate)
     {
-        aiRotate = true;
-        aiRotateTargetV = target;
-        aiAccelerate = accelerate;
-        if (callback != null)
+        if (!dead)
         {
-            aiCallback = callback;
+            aiRotate = true;
+            aiRotateTargetV = target;
+            aiAccelerate = accelerate;
+            if (callback != null)
+            {
+                aiCallback = callback;
+            }
         }
     }
 
     public void RotateCCW()
     {
-        body.velocity = Quaternion.AngleAxis(rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
+        if (!dead)
+        {
+            body.velocity = Quaternion.AngleAxis(rotateSpeed * Time.fixedDeltaTime, Vector3.forward) * body.velocity;
+        }
     }
 
     public void Roll()
     {
-        triplane.Roll();
+        if (!dead)
+        {
+            triplane.Roll();
+        }
     }
 
     public bool isUpsideDown()
@@ -188,6 +215,11 @@ public class ControllableFlying : MonoBehaviour
     private Vector3 getVec3(Vector2 v)
     {
         return new Vector3(v.x, v.y, 0);
+    }
+
+    public void Kill()
+    {
+        dead = true;
     }
 }
 

@@ -11,7 +11,10 @@ public class Triplane : MonoBehaviour
     float Health = 100.0f;
 
     [SerializeField]
-    ParticleSystem flash, smoke, lightSmoke, darkSmoke;
+    ParticleSystem flash, smoke, lightSmoke, darkSmoke, fire;
+
+    [SerializeField]
+    GameObject[] disableObjects;
 
     [SerializeField]
     GameObject Explosion;
@@ -87,6 +90,13 @@ public class Triplane : MonoBehaviour
         xpl.SetActive(true);
         xpl.transform.position = transform.position;
         ParentPlane.Kill();
-        Destroy(gameObject);
+        fire.Play();
+
+        foreach (GameObject obj in disableObjects)
+        {
+            obj.SetActive(false);
+        }
+
+        //Destroy(gameObject);
     }
 }

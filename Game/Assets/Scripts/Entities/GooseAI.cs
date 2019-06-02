@@ -143,7 +143,7 @@ public class GooseAI : MonoBehaviour, Killable
 
     public void Kill()
     {
-        Destroy(gameObject);
+        plane.Kill();
     }
 
     private bool runAI()
