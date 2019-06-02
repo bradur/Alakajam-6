@@ -12,12 +12,28 @@ public class BossEnemy : MonoBehaviour {
 
     private bool hasBeenSeen = false;
 
-    void OnBecameVisible()
+    [SerializeField]
+    private float visibleDistance = 5f;
+
+    [SerializeField]
+    private RuntimeVector3 playerPosition;
+
+    void BecameVisible()
     {
         Debug.Log("Boss visible!");
         if (!hasBeenSeen) {
             bossVisible.Toggle = true;
             hasBeenSeen = true;
+        }
+    }
+
+    void Update () {
+        if (!hasBeenSeen) {
+            float distance = Vector2.Distance(playerPosition.Value, transform.position);
+            Debug.Log(distance);
+            if (distance <= visibleDistance) {
+                BecameVisible();
+            }
         }
     }
 }
