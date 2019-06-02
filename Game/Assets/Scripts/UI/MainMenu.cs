@@ -6,25 +6,17 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
+using UnityEngine.SceneManagement;
+
 public class MainMenu : MonoBehaviour {
 
-    [SerializeField]
-    private Text txtComponent;
-    [SerializeField]
-    private Color colorVariable;
-    [SerializeField]
-    private Image imgComponent;
-
-    [SerializeField]
-    private GameObject world;
-    [SerializeField]
-    private GameObject canvas;
+    void Start() {
+        AudioPlayer.main.UnPauseMenuMusic();
+    }
 
     public void StartMission(int mission) {
-        canvas.SetActive(false);
-        world.SetActive(true);
         AudioPlayer.main.PauseMenuMusic();
-        Debug.Log("Start");
+        SceneManager.LoadScene(mission);
     }
 
 }

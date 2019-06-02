@@ -48,6 +48,7 @@ public class ControllableFlying : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        throttle = 12f;
         engineSoundSource = GetComponent<AudioSource>();
         if (engineSoundSource != null) {
             originalEngineSoundvolume = engineSoundSource.volume;
@@ -82,7 +83,8 @@ public class ControllableFlying : MonoBehaviour
         if (firstTick)
         {
             firstTick = false;
-            body.velocity = Vector3.right * throttle;
+            //body.velocity = Vector3.right * throttle;
+            body.velocity = new Vector2(30f, 0.6f);
         }
 
         if (body.velocity.magnitude > 80)
@@ -107,7 +109,6 @@ public class ControllableFlying : MonoBehaviour
             engineSoundSource.pitch = speed * engineSoundPitch;
         }
         runAIMovements();
-
         //Debug.Log(lift + ", " + speed + ", " + throttle + ", " + transform.up.normalized.y + ", " + speed);
     }
 
