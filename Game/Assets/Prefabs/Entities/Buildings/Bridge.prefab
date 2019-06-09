@@ -4688,12 +4688,24 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6252909591825215299, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252909591825215299, guid: da5f120db36508c4191c9d9f2dada734,
+        type: 3}
+      propertyPath: particleSystem
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3101191098727801766, guid: da5f120db36508c4191c9d9f2dada734,
         type: 3}
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3101191099540408106, guid: da5f120db36508c4191c9d9f2dada734, type: 3}
+    - {fileID: 3101191099540408107, guid: da5f120db36508c4191c9d9f2dada734, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: da5f120db36508c4191c9d9f2dada734, type: 3}
 --- !u!4 &1463855305246243606 stripped
 Transform:
