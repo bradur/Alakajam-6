@@ -1,0 +1,472 @@
+fileFormatVersion: 2
+guid: aa031d831aa864d41b6e08893a9b58d7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6619707287678988450
+    second: bridgepieces_0
+  - first:
+      213: 6709646570627629761
+    second: bridgepieces_1
+  - first:
+      213: 2390052960459827776
+    second: bridgepieces_2
+  - first:
+      213: 7471249220651247381
+    second: bridgepieces_3
+  - first:
+      213: 1205541539311370496
+    second: bridgepieces_4
+  - first:
+      213: 6993143211383761088
+    second: bridgepieces_5
+  - first:
+      213: -3620039828368099310
+    second: bridgepieces_6
+  - first:
+      213: -2752789946298201080
+    second: bridgepieces_7
+  - first:
+      213: 5720662138329757547
+    second: bridgepieces_8
+  - first:
+      213: 6470529835942299228
+    second: bridgepieces_9
+  - first:
+      213: 2973884563479486121
+    second: bridgepieces_10
+  - first:
+      213: -4560689546727720274
+    second: bridgepieces_11
+  - first:
+      213: -261773473540705475
+    second: bridgepieces_12
+  - first:
+      213: -5769594007879279019
+    second: bridgepieces_13
+  - first:
+      213: 2814130175281635148
+    second: bridgepieces_14
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bridgepieces_0
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 779
+        width: 528
+        height: 139
+      alignment: 9
+      pivot: {x: 0.48593116, y: 0.6519009}
+      border: {x: 0, y: 44, z: 0, w: 2}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 113cf76b5fb49ab4498d78fb309c2a4e
+      internalID: 6619707287678988450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_1
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 751
+        width: 375
+        height: 184
+      alignment: 9
+      pivot: {x: 0.579237, y: 0.58074385}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc060e01d0c1fb54386e249d60d76817
+      internalID: 6709646570627629761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_2
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 738
+        width: 340
+        height: 276
+      alignment: 9
+      pivot: {x: 0.42899287, y: 0.5672866}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a1d3bf58d12114c9531bac569062ef
+      internalID: 2390052960459827776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_3
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 487
+        width: 248
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9570b8a1f72e02645b48cd4ae4caaa9b
+      internalID: 7471249220651247381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_4
+      rect:
+        serializedVersion: 2
+        x: 767
+        y: 480
+        width: 244
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d7913321ad47cc49ab8be4fc3b77346
+      internalID: 1205541539311370496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_5
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 509
+        width: 243
+        height: 208
+      alignment: 9
+      pivot: {x: 0.46943069, y: 0.5624988}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 156763aedf8120c41ae7d98d1056d613
+      internalID: 6993143211383761088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_6
+      rect:
+        serializedVersion: 2
+        x: 814
+        y: 54
+        width: 200
+        height: 266
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd7e70a696f80a2489e9636100595487
+      internalID: -3620039828368099310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_7
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 23
+        width: 320
+        height: 347
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2ae2a86c77fc5843860a0d6883e9312
+      internalID: -2752789946298201080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_8
+      rect:
+        serializedVersion: 2
+        x: 1564
+        y: 392
+        width: 418
+        height: 286
+      alignment: 9
+      pivot: {x: 0.57997125, y: 0.54545367}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb8559b687f56149b76fb4afa09ec64
+      internalID: 5720662138329757547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_9
+      rect:
+        serializedVersion: 2
+        x: 2047
+        y: 411
+        width: 284
+        height: 275
+      alignment: 9
+      pivot: {x: 0.46076557, y: 0.5270126}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48657bd08cd494446b0433aa8ccfffc2
+      internalID: 6470529835942299228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_10
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 413
+        width: 230
+        height: 226
+      alignment: 9
+      pivot: {x: 0.5484471, y: 0.45891362}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6b12ab3e5e0b9c45ad7a0bb190ff1b8
+      internalID: 2973884563479486121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_11
+      rect:
+        serializedVersion: 2
+        x: 2043
+        y: 756
+        width: 307
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 913c1be643a221c41ae6d71fd52f14ab
+      internalID: -4560689546727720274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_12
+      rect:
+        serializedVersion: 2
+        x: 2429
+        y: 790
+        width: 242
+        height: 191
+      alignment: 9
+      pivot: {x: 0.42326117, y: 0.57778466}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a86002e7ae22ec744a6a38c5d14a3cc7
+      internalID: -261773473540705475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_13
+      rect:
+        serializedVersion: 2
+        x: 2717
+        y: 732
+        width: 253
+        height: 245
+      alignment: 9
+      pivot: {x: 0.4559582, y: 0.50758004}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d570002cfde94b4ea38fee2d4048359
+      internalID: -5769594007879279019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bridgepieces_14
+      rect:
+        serializedVersion: 2
+        x: 2996
+        y: 857
+        width: 141
+        height: 100
+      alignment: 9
+      pivot: {x: 0.44731757, y: 0.53714234}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4190be911fdf73c41b753d93899c517d
+      internalID: 2814130175281635148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 351bbafd121c7a44e8cf7b486d2a436b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
